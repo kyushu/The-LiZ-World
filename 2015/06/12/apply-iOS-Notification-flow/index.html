@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | The LiZ World</title>
+  <title>iOS 申請 推播 (Push Notification) 流程 | The LiZ World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="iOS 申請 推播 (Push Notification) 流程
+ 程式碼:https://gist.github.com/sawapi/a7cee65e4ad95578044d
+1.鑰匙圈存取-&amp;gt;憑證輔助程式-&amp;gt;從憑證授權要求憑證 =&amp;gt;會產生CertificateSigningRequest.certSigningRequest(憑證申請書)2.將上步驟獲取之檔案到apple">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://kyushu.github.io/2016/02/21/hello-world/index.html">
+<meta property="og:title" content="iOS 申請 推播 (Push Notification) 流程">
+<meta property="og:url" content="http://kyushu.github.io/2015/06/12/apply-iOS-Notification-flow/index.html">
 <meta property="og:site_name" content="The LiZ World">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-02-21T08:48:57.000Z">
+<meta property="og:description" content="iOS 申請 推播 (Push Notification) 流程
+ 程式碼:https://gist.github.com/sawapi/a7cee65e4ad95578044d
+1.鑰匙圈存取-&amp;gt;憑證輔助程式-&amp;gt;從憑證授權要求憑證 =&amp;gt;會產生CertificateSigningRequest.certSigningRequest(憑證申請書)2.將上步驟獲取之檔案到apple">
+<meta property="og:updated_time" content="2016-02-21T10:04:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="iOS 申請 推播 (Push Notification) 流程">
+<meta name="twitter:description" content="iOS 申請 推播 (Push Notification) 流程
+ 程式碼:https://gist.github.com/sawapi/a7cee65e4ad95578044d
+1.鑰匙圈存取-&amp;gt;憑證輔助程式-&amp;gt;從憑證授權要求憑證 =&amp;gt;會產生CertificateSigningRequest.certSigningRequest(憑證申請書)2.將上步驟獲取之檔案到apple">
   
     <link rel="alternate" href="/atom.xml" title="The LiZ World" type="application/atom+xml">
   
@@ -70,10 +73,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-apply-iOS-Notification-flow" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/The-LiZ-World/2016/02/21/hello-world/" class="article-date">
-  <time datetime="2016-02-21T08:48:59.000Z" itemprop="datePublished">2016-02-21</time>
+    <a href="/The-LiZ-World/2015/06/12/apply-iOS-Notification-flow/" class="article-date">
+  <time datetime="2015-06-12T10:00:41.000Z" itemprop="datePublished">2015-06-12</time>
 </a>
     
   </div>
@@ -84,7 +87,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      iOS 申請 推播 (Push Notification) 流程
     </h1>
   
 
@@ -92,32 +95,41 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>iOS 申請 推播 (Push Notification) 流程</p>
+<p> 程式碼:<a href="https://gist.github.com/sawapi/a7cee65e4ad95578044d" target="_blank" rel="external">https://gist.github.com/sawapi/a7cee65e4ad95578044d</a></p>
+<p>1.鑰匙圈存取-&gt;憑證輔助程式-&gt;從憑證授權要求憑證 =&gt;會產生CertificateSigningRequest.certSigningRequest(憑證申請書)<br>2.將上步驟獲取之檔案到apple developer 申請憑證 aps_development.cer<br>3.將上步驟申請之憑證,透過鑰匙圈存取 轉檔成private_key.p12(按右鍵輸出)<br>4.將aps_development.cer轉換為 aps_development.pem<br>openssl x509 -in aps_development.cer -inform DER -out aps_development.pem -outform PEM<br>5.將private_key.p12 轉換為 private_key.pem<br>openssl pkcs12 -nocerts -out private_key.pem -in private_key.p12<br>6.去除轉發密碼<br>openssl rsa -out private_key_noenc.pem -in private_key.pem<br>7.合併 aps_development.pem 與 private_key_noenc.pem<br>cat aps_development.pem private_key_noenc.pem &gt; apns_dev.pem<br>8.金鑰申請完成</p>
+<p><em><strong>到步驟 8 所產生的金鑰是給伺服器使用的</strong></em></p>
+<p>9.到apple developer 申請 Provisioning Profiles會產生xxxxx.mobileprovision檔,點擊後,重新run app就會產生push token</p>
+<p><em><strong><br>步驟 9 所產生的 xxxxx.mobileprovision檔 是給 APP用的，抓下來後在 Xcode 己開啟的情況下雙點擊xxxxx.mobileprovision檔案，Xcode 會自動載入到相同的 Bundle Identifier 的專案<br></strong></em></p>
+<p>10 Case： 如果建立新的專案，名稱與舊的專案不同，但想將舊的更新掉，可以如下的做法<br>10-1. 在 project -&gt; targety -&gt; info -&gt; Bundle Identifier : 改成舊的專案 Bundle Identifier （Apple 只認 Bundle Identifier）<br>10-2. 如果舊的專案已經有使用 Push Notification，想要在新的專案繼續使用<br>10-2-1. 建議重做 1 ～9 步驟，但因為原本舊的專案已經產生過憑證（.cer），所以直接從步驟2. 做到 iOS APP -&gt; Identifiers -&gt; APP ID -&gt; 找舊的專案點選 -&gt; Edit -&gt; Development SSL Certificate -&gt; download 接著從步驟 2 開始<br>10-2-2. Provision Profiles -&gt; All -&gt; 找舊的專案點選 -&gt; Download -&gt; 下載下來後點擊會自動加入Xcode （跟步驟 9 一樣，會認 Bundle Identifier）</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://kyushu.github.io/2016/02/21/hello-world/" data-id="cikwdrgk100018b3ygagem7ic" class="article-share-link">Share</a>
+      <a data-url="http://kyushu.github.io/2015/06/12/apply-iOS-Notification-flow/" data-id="cikwdvwto00098b3yratq1ihv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
+    <a href="/The-LiZ-World/2015/06/12/the-rule-of-ver-Num-of-Node/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          the_Rule_Of_version_Number_Of_Node.JS
+        
+      </div>
+    </a>
   
-    <a href="/The-LiZ-World/2015/11/20/iOS-Control-Orientation/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/The-LiZ-World/2015/06/09/customize-CheckBok-UIView/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">如何控制 iOS App 裡 View 的轉向 (How to control View&#39;s Orientation)</div>
+      <div class="article-nav-title">客製 Check Box</div>
     </a>
   
 </nav>

@@ -68,10 +68,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Customizer-inputAccessoryView-Of-Keyboard" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/The-LiZ-World/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/" class="article-date">
-  <time datetime="2016-02-21T09:35:00.000Z" itemprop="datePublished">2016-02-21</time>
+    <a href="/The-LiZ-World/2016/02/21/hello-world/" class="article-date">
+  <time datetime="2016-02-21T08:48:59.000Z" itemprop="datePublished">2016-02-21</time>
 </a>
     
   </div>
@@ -82,7 +82,271 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/The-LiZ-World/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/">客製化 UITextView 鍵盤的 inputAccessoryView</a>
+      <a class="article-title" href="/The-LiZ-World/2016/02/21/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kyushu.github.io/2016/02/21/hello-world/" data-id="cikwdrgk100018b3ygagem7ic" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS-Control-Orientation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/The-LiZ-World/2015/11/20/iOS-Control-Orientation/" class="article-date">
+  <time datetime="2015-11-20T10:27:20.000Z" itemprop="datePublished">2015-11-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/The-LiZ-World/2015/11/20/iOS-Control-Orientation/">如何控制 iOS App 裡 View 的轉向 (How to control View&#39;s Orientation)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基本上 控制 View 的轉向主要有三個 Method 可以呼叫</p>
+<p>override func supportedInterfaceOrientations() -&gt; UIInterfaceOrientationMask<br>override func shouldAutorotate() -&gt; Bool<br>override func preferredInterfaceOrientationForPresentation() -&gt; UIInterfaceOrientation</p>
+<p>不過我只使用其中兩種即可控制 View 的轉向，以下是範例：<br>在你想要View 是顯示在 Portrait 的 View Controller 裡加上以下兩個 method:</p>
+<p>override func supportedInterfaceOrientations() -&gt; UIInterfaceOrientationMask {<br>    return [UIInterfaceOrientationMask.Portrait ,UIInterfaceOrientationMask.PortraitUpsideDown]<br>}<br>override func shouldAutorotate() -&gt; Bool {<br>    if (UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeLeft ||<br>        UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeRight ||<br>        UIDevice.currentDevice().orientation == UIDeviceOrientation.Unknown) {<br>            return false<br>    }<br>    else {<br>        return true<br>    }<br>}</p>
+<p>如果你是使用在 root View Controller  是 UINavigationController 的情況下，因為當發生 Rotation 時，UINavigationController 的 shouldAutorotate()會被執行，而它不會將此訊息往它的 child View Controller 傳，所以你實作在 ViewController 裡的 shouldAutorotate() 就不會被執行，所以你要幫 UINavigationController 加上 Extension 如下：</p>
+<p>extension UINavigationController {</p>
+<pre><code>public override func shouldAutorotate() -&gt; Bool {
+    return (self.topViewController?.shouldAutorotate())!
+}
+</code></pre><p>}</p>
+<p>如此，UINavigationController就會去執行目前顯示在畫面的 ViewController 的 shouldAutorotate()</p>
+<p>That’s it</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kyushu.github.io/2015/11/20/iOS-Control-Orientation/" data-id="cikweu6tm000k8b3yj66al6ax" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-text-flip-up" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/The-LiZ-World/2015/08/21/text-flip-up/" class="article-date">
+  <time datetime="2015-08-21T10:24:44.000Z" itemprop="datePublished">2015-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/The-LiZ-World/2015/08/21/text-flip-up/">iOS 動畫： 模擬文字向上／向下翻轉的動畫</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>這篇是從這位 作者 的 github 節錄下來的，若對 iOS 的動畫有興趣，可以關注這位作者</p>
+<p>直接上 Code</p>
+<pre><code>
+import UIKit
+import QuartzCore
+
+enum AnimationDirection: Int {
+    case Positive = 1
+    case Negative = -1
+}
+class thirdViewController: UIViewController {
+
+    @IBOutlet weak var bgImage: UIImageView!
+    @IBOutlet weak var label1: UILabel!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.repeat1()
+        // Do any additional setup after loading the view.
+    }
+    func repeat1(){
+        delay(seconds: 1){
+            self.cubeTransition(label: self.label1, text: "SuperXlx", direction: AnimationDirection.Positive)
+            self.fadeImageView(self.bgImage, toImage: UIImage(named: "bg-sunny")!)
+            self.repeat2()
+        }
+    }
+    func repeat2(){
+        delay(seconds: 1){
+            self.fadeImageView(self.bgImage, toImage: UIImage(named: "bg-snowy")!)
+            self.cubeTransition(label: self.label1, text: "StrongX", direction: AnimationDirection.Negative)
+            self.repeat1()
+        }
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    func fadeImageView(imageView: UIImageView, toImage: UIImage) {
+
+        UIView.transitionWithView(imageView, duration: 1.0,
+            options: .TransitionCrossDissolve, animations: {
+                imageView.image = toImage
+            }, completion: nil)
+
+    }
+
+    func cubeTransition(#label: UILabel, text: String, direction: AnimationDirection) {
+
+        let auxLabel = UILabel(frame: label.frame)
+        auxLabel.text = text
+        auxLabel.font = label.font
+        auxLabel.textAlignment = label.textAlignment
+        auxLabel.textColor = label.textColor
+      //  auxLabel.backgroundColor = label.backgroundColor
+
+        // A1,A2: 先將 auxLabel 顯示成高度 y = 0.1 的狀態，也就是壓扁的樣子
+        // A1.
+        let auxLabelOffset = CGFloat(direction.rawValue) * label.frame.size.height/2.0
+        // A2.
+        auxLabel.transform = CGAffineTransformConcat(
+            CGAffineTransformMakeScale(1.0, 0.1),
+            CGAffineTransformMakeTranslation(0.0, auxLabelOffset))
+
+        // A3. 將 auxLabel 加入 subView
+        label.superview!.addSubview(auxLabel)
+
+        // A4. 執行動面
+        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+            // A4-1. 將 auxLabel 回復成跟原本的 label 一樣高度
+            auxLabel.transform = CGAffineTransformIdentity
+
+
+            // A4-2. 將原本的 label 的高度壓成 y = 0.1 的大小，並向上移動，達到向上翻轉的效果
+            label.transform = CGAffineTransformConcat(
+                // A4-2-1. label 高度縮小
+                CGAffineTransformMakeScale(1.0, 0.1),
+                // A4-2-2. label 向上移動
+                CGAffineTransformMakeTranslation(0.0, -auxLabelOffset))
+            }, completion: {_ in
+
+                // 最後還是由 label 顯示最後的文字，並把 auxLabel 移除
+                label.text = auxLabel.text
+                label.transform = CGAffineTransformIdentity
+
+                auxLabel.removeFromSuperview()
+        })
+
+    }
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kyushu.github.io/2015/08/21/text-flip-up/" data-id="cikwequcw000j8b3ytku35cyd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-customize-corner-of-UIView" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/The-LiZ-World/2015/07/14/customize-corner-of-UIView/" class="article-date">
+  <time datetime="2015-07-14T10:17:13.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/The-LiZ-World/2015/07/14/customize-corner-of-UIView/">iOS 設定 UIView 的某幾個角為圓角</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>OK, I just copy from someone  kerker~~</p>
+<p>Objective-C 版本</p>
+<p>UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];<br>view2.backgroundColor = [UIColor redColor];<br>[self.view addSubview:view2];</p>
+<p>UIBezierPath <em>maskPath = [UIBezierPath bezierPathWithRoundedRect:view2.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];<br>CAShapeLayer </em>maskLayer = [[CAShapeLayer alloc] init];<br>maskLayer.frame = view2.bounds;<br>maskLayer.path = maskPath.CGPath;<br>view2.layer.mask = maskLayer;</p>
+<p>Swift 版本<br>// 1. Need to be Rounded View<br>let roundedView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))<br>roundedView.backgroundColor = UIColor.redColor()</p>
+<p>// 2. Setup BezierPath for rounding corners<br>let maskPath = UIBezierPath(roundedRect: roundedView.bounds, byRoundingCorners: UIRectCorner.BottomLeft | UIRectCorner.BottomRight, cornerRadii: CGSize(width: 5, height: 5))</p>
+<p>// 3. Instant and configure a CAShaperLayer for mask view<br>let maskLayer = CAShaperLayer()<br>maskLayer.frame = roundedView.bounds<br>maskLayer.path = maskPath.CGPath</p>
+<p>// 4. maske roundedView by “maskLayer”<br>roundedView.layer.mask = maskLayer</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kyushu.github.io/2015/07/14/customize-corner-of-UIView/" data-id="cikweh6mu000h8b3y3s845jnw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Customizer-inputAccessoryView-Of-Keyboard" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/The-LiZ-World/2015/07/13/Customizer-inputAccessoryView-Of-Keyboard/" class="article-date">
+  <time datetime="2015-07-13T09:35:00.000Z" itemprop="datePublished">2015-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/The-LiZ-World/2015/07/13/Customizer-inputAccessoryView-Of-Keyboard/">客製化 UITextView 鍵盤的 inputAccessoryView</a>
     </h1>
   
 
@@ -132,7 +396,7 @@ textView.inputAccessoryView = keyboardToolBar
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://kyushu.github.io/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/" data-id="cikwcyvml0000063yv2vbnnxf" class="article-share-link">Share</a>
+      <a data-url="http://kyushu.github.io/2015/07/13/Customizer-inputAccessoryView-Of-Keyboard/" data-id="cikwdrgke00058b3y8nd7wrte" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
@@ -146,8 +410,8 @@ textView.inputAccessoryView = keyboardToolBar
   
     <article id="post-Customizer-RichText-Editor-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/The-LiZ-World/2016/02/21/Customizer-RichText-Editor-2/" class="article-date">
-  <time datetime="2016-02-21T09:15:21.000Z" itemprop="datePublished">2016-02-21</time>
+    <a href="/The-LiZ-World/2015/07/13/Customizer-RichText-Editor-2/" class="article-date">
+  <time datetime="2015-07-13T09:15:21.000Z" itemprop="datePublished">2015-07-13</time>
 </a>
     
   </div>
@@ -158,7 +422,7 @@ textView.inputAccessoryView = keyboardToolBar
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/The-LiZ-World/2016/02/21/Customizer-RichText-Editor-2/">iOS 實作 圖文編輯器 （二） UITextView 設定</a>
+      <a class="article-title" href="/The-LiZ-World/2015/07/13/Customizer-RichText-Editor-2/">iOS 實作 圖文編輯器 （二） UITextView 設定</a>
     </h1>
   
 
@@ -224,7 +488,7 @@ func keyboardWillHide(n:NSNotification) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://kyushu.github.io/2016/02/21/Customizer-RichText-Editor-2/" data-id="cikwcf7eo0000z13yr5hdtaa4" class="article-share-link">Share</a>
+      <a data-url="http://kyushu.github.io/2015/07/13/Customizer-RichText-Editor-2/" data-id="cikwdrgkh00078b3y0xmkwm36" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
@@ -236,55 +500,10 @@ func keyboardWillHide(n:NSNotification) {
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/The-LiZ-World/2016/02/21/hello-world/" class="article-date">
-  <time datetime="2016-02-21T08:48:59.000Z" itemprop="datePublished">2016-02-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/The-LiZ-World/2016/02/21/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://kyushu.github.io/2016/02/21/hello-world/" data-id="cikwcf7fm0003z13y7p82qvkg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-Customizer_RichText_Editor_1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/The-LiZ-World/2016/02/21/Customizer_RichText_Editor_1/" class="article-date">
-  <time datetime="2016-02-21T07:14:37.000Z" itemprop="datePublished">2016-02-21</time>
+    <a href="/The-LiZ-World/2015/07/13/Customizer_RichText_Editor_1/" class="article-date">
+  <time datetime="2015-07-13T07:14:37.000Z" itemprop="datePublished">2015-07-13</time>
 </a>
     
   </div>
@@ -295,7 +514,7 @@ func keyboardWillHide(n:NSNotification) {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/The-LiZ-World/2016/02/21/Customizer_RichText_Editor_1/">iOS 實作 圖文編輯器 （一） UITextView 與 Text Kit</a>
+      <a class="article-title" href="/The-LiZ-World/2015/07/13/Customizer_RichText_Editor_1/">iOS 實作 圖文編輯器 （一） UITextView 與 Text Kit</a>
     </h1>
   
 
@@ -303,7 +522,8 @@ func keyboardWillHide(n:NSNotification) {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <font color="#ff0000" size="5">UITextView</font> 是 UIScrollView 的子類別，基本上它跟 UITextField很像，差別在於，UITextView可以寫入多行並且可以使用 TextKit 達到圖文並茂的文章<br><br>底下列出 UITextView 的一些屬性, 代理，通知<br><br><font color="#ff0000" size="4">Attribute</font><br>1. <strong>selectedRange</strong> : 目前選擇的範圍，selectedRange.location 就是游標所在的位置<br>2. <strong>scrollRangeToVisible</strong> : 滾動到指到的範圍<br><br>### UITextViewDelegate Protocol:<br>1. <strong>textViewShouldBeginEditing:</strong><br>2. <strong>textViewDidBeginEdition:</strong><br>3. <strong>textViewShouldEndEditing:</strong><br>4. <strong>textViewDidEndEditing:</strong><br>5. <strong>textView: ShouldChangeTextInRange: replacementText:</strong><br>6. <strong>textView: ShouldInteractWithTextAttachment: inRange:</strong><br>7. <strong>textView: shouldInteractWithURL: inRange:</strong><br><br>### Notification<br>1. <strong>UITextViewTextDidBeginEditingNotification</strong><br>2. <strong>UITextViewTextDidEndEditingNotification</strong><br>3. <strong>UITextViewtextDidChangeNotification</strong><br>4. <strong>UITextViewDidChangeSelection</strong><br><br>之後再根據有使用到的 Method 再加入說明<br><br><br><font color="#ff0000"><em><strong>Text Kit</strong></em></font> 是用來處理文字的引擎，可以將 <font color="#53A6FB"><em>NSAttributedString</em></font> 繪製到畫面上<br><br>這邊主要討論 UITextView 跟 Text Kit 之間的關係<br><font color="#ff0000"><em><strong>Text Kit</strong></em></font> 主要由3個類別組成，分別是<br><font color="#53A6FB"><em>NSTextStorage</em></font>,<br><font color="#53A6FB"><em>NSTextStorageNSTextContainer</em></font>,<br><font color="#53A6FB"><em>NSTextStorageNSLayoutManager</em></font>
+        <p><br></p>
+<font color="#ff0000" size="5">UITextView</font> 是 UIScrollView 的子類別，基本上它跟 UITextField很像，差別在於，UITextView可以寫入多行並且可以使用 TextKit 達到圖文並茂的文章<br><br>底下列出 UITextView 的一些屬性, 代理，通知<br><br><font color="#ff0000" size="4">Attribute</font><br>1. <strong>selectedRange</strong> : 目前選擇的範圍，selectedRange.location 就是游標所在的位置<br>2. <strong>scrollRangeToVisible</strong> : 滾動到指到的範圍<br><br>### UITextViewDelegate Protocol:<br>1. <strong>textViewShouldBeginEditing:</strong><br>2. <strong>textViewDidBeginEdition:</strong><br>3. <strong>textViewShouldEndEditing:</strong><br>4. <strong>textViewDidEndEditing:</strong><br>5. <strong>textView: ShouldChangeTextInRange: replacementText:</strong><br>6. <strong>textView: ShouldInteractWithTextAttachment: inRange:</strong><br>7. <strong>textView: shouldInteractWithURL: inRange:</strong><br><br>### Notification<br>1. <strong>UITextViewTextDidBeginEditingNotification</strong><br>2. <strong>UITextViewTextDidEndEditingNotification</strong><br>3. <strong>UITextViewtextDidChangeNotification</strong><br>4. <strong>UITextViewDidChangeSelection</strong><br><br>之後再根據有使用到的 Method 再加入說明<br><br><br><font color="#ff0000"><em><strong>Text Kit</strong></em></font> 是用來處理文字的引擎，可以將 <font color="#53A6FB"><em>NSAttributedString</em></font> 繪製到畫面上<br><br>這邊主要討論 UITextView 跟 Text Kit 之間的關係<br><font color="#ff0000"><em><strong>Text Kit</strong></em></font> 主要由3個類別組成，分別是<br><font color="#53A6FB"><em>NSTextStorage</em></font>,<br><font color="#53A6FB"><em>NSTextStorageNSTextContainer</em></font>,<br><font color="#53A6FB"><em>NSTextStorageNSLayoutManager</em></font>
 
 <p>而 <font color="#ff0000"><em>UITextView</em></font> 提供了可以直接存取 Text Kit 這 3 個類別的屬性</p>
 <p><font color="#C43480"><em>textStorage (NSTextStorage)</em></font> : NSMutableAttributedString 的子類別，它就是儲存 UITextView裡所有的文字。</p>
@@ -315,7 +535,166 @@ func keyboardWillHide(n:NSNotification) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://kyushu.github.io/2016/02/21/Customizer_RichText_Editor_1/" data-id="cikwcf7ft0004z13ynog0cr4h" class="article-share-link">Share</a>
+      <a data-url="http://kyushu.github.io/2015/07/13/Customizer_RichText_Editor_1/" data-id="cikwdrgk600028b3ysd4y22vi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Built-in-Camera-Interface-CH" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/The-LiZ-World/2015/07/06/Built-in-Camera-Interface-CH/" class="article-date">
+  <time datetime="2015-07-06T09:56:35.000Z" itemprop="datePublished">2015-07-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/The-LiZ-World/2015/07/06/Built-in-Camera-Interface-CH/">將內建的相機介面改成中文</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>當使用iOS內建的照相機介面時，例如使用 UIImagePickerController 來開啟相機時預設介面會是英文的，這時只要在專案裡<br>點選 PROJECT  -&gt; Info -&gt; Localizations<br>基本上在 Localizations 你只會看到 Engilsh - Development Language<br>按下 ＋ 新增 Chinese  (Traditional) 即可</p>
+<p>接著重新build一次，再開啟 app 裡的相機，這時你會發覺 cancel, retake use Photo 都變成中文囉<br>因為此時 iOS 就會根據裝置的語系來顯示選項<br>同理，之後的文字選單的 複製，貼上，全選等等都會以中文顯</p>
+<p>下台一鞠躬</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kyushu.github.io/2015/07/06/Built-in-Camera-Interface-CH/" data-id="cikwdrgj600008b3ylput6x8g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-the-rule-of-ver-Num-of-Node" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/The-LiZ-World/2015/06/12/the-rule-of-ver-Num-of-Node/" class="article-date">
+  <time datetime="2015-06-12T10:12:59.000Z" itemprop="datePublished">2015-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/The-LiZ-World/2015/06/12/the-rule-of-ver-Num-of-Node/">the_Rule_Of_version_Number_Of_Node.JS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>關於package.json裡設定  node.js 的 module  版號，使用的規則如下</p>
+<p>假設 package.json 裡的內容如下</p>
+<pre><code>
+{
+  "name": "MyApp",
+  "version": "1.0.2",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.12.4",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.12.4",
+    "jade": "~1.9.2",
+    "morgan": "~1.5.3",
+    "serve-favicon": "~2.2.1",
+    "mongodb": "2.0.33",
+    "monk": "1.0.1",
+    "connect-flash": "0.1.1",
+    "express-validator": "2.10.0",
+    "express-session": "1.11.2",
+    "express-messages": "0.0.2",
+    "multer": "0.1.8",
+    "moment": "2.10.3"
+  }
+}  
+</code></pre>
+
+
+<p>以 morgan: “~1.5.3” 為例</p>
+<p>1 :  main version， 主要版號<br>5 :  sub version，次版號，有新功能時會增加<br>3 :  bug version, bug 版號，有修正 bug 時會增加</p>
+<p>至於版號前面的符號所代表的意思如下：<br>“~1.5.3” 代表 1.5.x （Bug修正等等更新，舉例：會更新1.5.4， 1.6.1就不會）<br>“^1.5.3” 則相當於會更新到1.x.x （新版，有新功能，但會相容，舉例：會更新1.6.3， 2.0.1就不會）<br>“1.5.3” 永遠只會用1.5.3這版本（也就是如果新版修正了1.5.3的 bug， 你用 npm update 也不會更新）</p>
+<p>基本上當你使用 npm install morgan –save 的時候<br>它預設會寫入 “morgan”: “＾1.5.3”</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kyushu.github.io/2015/06/12/the-rule-of-ver-Num-of-Node/" data-id="cikwebqnr000e8b3y78kqzl43" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-apply-iOS-Notification-flow" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/The-LiZ-World/2015/06/12/apply-iOS-Notification-flow/" class="article-date">
+  <time datetime="2015-06-12T10:00:41.000Z" itemprop="datePublished">2015-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/The-LiZ-World/2015/06/12/apply-iOS-Notification-flow/">iOS 申請 推播 (Push Notification) 流程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iOS 申請 推播 (Push Notification) 流程</p>
+<p> 程式碼:<a href="https://gist.github.com/sawapi/a7cee65e4ad95578044d" target="_blank" rel="external">https://gist.github.com/sawapi/a7cee65e4ad95578044d</a></p>
+<p>1.鑰匙圈存取-&gt;憑證輔助程式-&gt;從憑證授權要求憑證 =&gt;會產生CertificateSigningRequest.certSigningRequest(憑證申請書)<br>2.將上步驟獲取之檔案到apple developer 申請憑證 aps_development.cer<br>3.將上步驟申請之憑證,透過鑰匙圈存取 轉檔成private_key.p12(按右鍵輸出)<br>4.將aps_development.cer轉換為 aps_development.pem<br>openssl x509 -in aps_development.cer -inform DER -out aps_development.pem -outform PEM<br>5.將private_key.p12 轉換為 private_key.pem<br>openssl pkcs12 -nocerts -out private_key.pem -in private_key.p12<br>6.去除轉發密碼<br>openssl rsa -out private_key_noenc.pem -in private_key.pem<br>7.合併 aps_development.pem 與 private_key_noenc.pem<br>cat aps_development.pem private_key_noenc.pem &gt; apns_dev.pem<br>8.金鑰申請完成</p>
+<p><em><strong>到步驟 8 所產生的金鑰是給伺服器使用的</strong></em></p>
+<p>9.到apple developer 申請 Provisioning Profiles會產生xxxxx.mobileprovision檔,點擊後,重新run app就會產生push token</p>
+<p><em><strong><br>步驟 9 所產生的 xxxxx.mobileprovision檔 是給 APP用的，抓下來後在 Xcode 己開啟的情況下雙點擊xxxxx.mobileprovision檔案，Xcode 會自動載入到相同的 Bundle Identifier 的專案<br></strong></em></p>
+<p>10 Case： 如果建立新的專案，名稱與舊的專案不同，但想將舊的更新掉，可以如下的做法<br>10-1. 在 project -&gt; targety -&gt; info -&gt; Bundle Identifier : 改成舊的專案 Bundle Identifier （Apple 只認 Bundle Identifier）<br>10-2. 如果舊的專案已經有使用 Push Notification，想要在新的專案繼續使用<br>10-2-1. 建議重做 1 ～9 步驟，但因為原本舊的專案已經產生過憑證（.cer），所以直接從步驟2. 做到 iOS APP -&gt; Identifiers -&gt; APP ID -&gt; 找舊的專案點選 -&gt; Edit -&gt; Development SSL Certificate -&gt; download 接著從步驟 2 開始<br>10-2-2. Provision Profiles -&gt; All -&gt; 找舊的專案點選 -&gt; Download -&gt; 下載下來後點擊會自動加入Xcode （跟步驟 9 一樣，會認 Bundle Identifier）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kyushu.github.io/2015/06/12/apply-iOS-Notification-flow/" data-id="cikwdvwto00098b3yratq1ihv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
@@ -328,6 +707,10 @@ func keyboardWillHide(n:NSNotification) {
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/The-LiZ-World/page/2/">2</a><a class="extend next" rel="next" href="/The-LiZ-World/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -339,7 +722,7 @@ func keyboardWillHide(n:NSNotification) {
   <div class="widget-wrap">
     <h3 class="widget-title">標籤</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/The-LiZ-World/tags/node-js/">node.js</a></li></ul>
     </div>
   </div>
 
@@ -349,7 +732,7 @@ func keyboardWillHide(n:NSNotification) {
   <div class="widget-wrap">
     <h3 class="widget-title">標籤雲</h3>
     <div class="widget tagcloud">
-      <a href="/The-LiZ-World/tags/iOS/" style="font-size: 10px;">iOS</a>
+      <a href="/The-LiZ-World/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/The-LiZ-World/tags/node-js/" style="font-size: 10px;">node.js</a>
     </div>
   </div>
 
@@ -358,7 +741,7 @@ func keyboardWillHide(n:NSNotification) {
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/The-LiZ-World/archives/2016/02/">February 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/The-LiZ-World/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/The-LiZ-World/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/The-LiZ-World/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/The-LiZ-World/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/The-LiZ-World/archives/2015/06/">June 2015</a></li></ul>
     </div>
   </div>
 
@@ -371,19 +754,23 @@ func keyboardWillHide(n:NSNotification) {
       <ul>
         
           <li>
-            <a href="/The-LiZ-World/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/">客製化 UITextView 鍵盤的 inputAccessoryView</a>
-          </li>
-        
-          <li>
-            <a href="/The-LiZ-World/2016/02/21/Customizer-RichText-Editor-2/">iOS 實作 圖文編輯器 （二） UITextView 設定</a>
-          </li>
-        
-          <li>
             <a href="/The-LiZ-World/2016/02/21/hello-world/">Hello World</a>
           </li>
         
           <li>
-            <a href="/The-LiZ-World/2016/02/21/Customizer_RichText_Editor_1/">iOS 實作 圖文編輯器 （一） UITextView 與 Text Kit</a>
+            <a href="/The-LiZ-World/2015/11/20/iOS-Control-Orientation/">如何控制 iOS App 裡 View 的轉向 (How to control View&#39;s Orientation)</a>
+          </li>
+        
+          <li>
+            <a href="/The-LiZ-World/2015/08/21/text-flip-up/">iOS 動畫： 模擬文字向上／向下翻轉的動畫</a>
+          </li>
+        
+          <li>
+            <a href="/The-LiZ-World/2015/07/14/customize-corner-of-UIView/">iOS 設定 UIView 的某幾個角為圓角</a>
+          </li>
+        
+          <li>
+            <a href="/The-LiZ-World/2015/07/13/Customizer-inputAccessoryView-Of-Keyboard/">客製化 UITextView 鍵盤的 inputAccessoryView</a>
           </li>
         
       </ul>
