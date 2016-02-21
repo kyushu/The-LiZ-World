@@ -68,6 +68,82 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Customizer-inputAccessoryView-Of-Keyboard" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/The-LiZ-World/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/" class="article-date">
+  <time datetime="2016-02-21T09:35:00.000Z" itemprop="datePublished">2016-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/The-LiZ-World/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/">客製化 UITextView 鍵盤的 inputAccessoryView</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用 UITextView 的時候，我們可以對鍵盤的 inputAccessoryView 做簡單的客製化</p>
+<p>inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示</p>
+<p><img src="http://2.bp.blogspot.com/-RwChUep9MXg/VaPZtaxR4TI/AAAAAAAAABA/SkAelEYR_rc/s1600/keyboard.png"></p>
+<p>程式碼如下</p>
+<p>// 建立一個 UIToolBar</p>
+<pre><code>
+let keyboardToolBar = UIToolbar()
+keyboardToolBar.sizeToFit()  
+</code></pre>
+
+<p>// 建立所要的 Bar Button</p>
+<pre><code>
+let done = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "endEditingNow")
+
+let takePicture = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "openCameraOrAlbum")
+
+let flexible = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+
+let fixedSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+
+fixedSpace.width = 20.0  
+</code></pre>
+
+<p>// 將所有的 Bar Button 加入 Tool Bar</p>
+<pre><code>
+var toolbarButtons = [flexible, takePicture, fixedSpace, done, flexible]
+keyboardToolBar.setItems(toolbarButtons, animated: false)  
+</code></pre>
+
+<p>// 將TextView(UITextView)的 inputAccessoryView 設成此 Tool Bar </p>
+<pre><code>
+textView.inputAccessoryView = keyboardToolBar  
+</code></pre>
+
+
+<p>上述的程式碼可以加在 viewDidLoad 裡</p>
+<p>目前我測試的狀況是，用 UIToolBar 的話這個 Tool Bar 可以很完美的隨著鍵盤上升下降在正確的位置，如果是用 UIView 的話位置會不正常</p>
+<p>或許用UIView的話也是可行的，只是再多做一些設定，不過以我目前的狀況這樣就夠用了，等之後遇到再說吧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://kyushu.github.io/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/" data-id="cikwcyvml0000063yv2vbnnxf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Customizer-RichText-Editor-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/The-LiZ-World/2016/02/21/Customizer-RichText-Editor-2/" class="article-date">
@@ -90,7 +166,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate</p>
+        <p>##根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate</p>
 <h3 id="1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍"><a href="#1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍" class="headerlink" title="1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍"></a>1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍</h3><pre><code>
 func textViewDidChangeSelection(textView: UITextView) {        
   textView.scrollRangeToVisible(textView.selectedRange)
@@ -122,7 +198,9 @@ func textViewDidChange(textView: UITextView) {
 }
 </code></pre>
 
-<h3 id="3-鍵盤的設定"><a href="#3-鍵盤的設定" class="headerlink" title="3. 鍵盤的設定"></a>3. 鍵盤的設定</h3><p>在viewDidLoad 裡設定接收UIKeyboardNotification 的 方法<br><em><br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillShow:”, name: UIKeyboardWillShowNotification, object: nil)<br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillHide:”, name: UIKeyboardWillHideNotification, object: nil)<br></em></p>
+<h3 id="3-鍵盤的設定"><a href="#3-鍵盤的設定" class="headerlink" title="3. 鍵盤的設定"></a>3. 鍵盤的設定</h3><p><strong>在viewDidLoad 裡設定接收UIKeyboardNotification 的方法</strong></p>
+<p><strong><em>鍵盤由下方彈出時</em></strong><br><em><br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillShow:”, name: UIKeyboardWillShowNotification, object: nil)<br></em></p>
+<p><strong><em>鍵盤由收回至下方時</em></strong><br><em><br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillHide:”, name: UIKeyboardWillHideNotification, object: nil)<br></em></p>
 <pre><code>
 func keyboardWillShow(n:NSNotification) {
   self.keyboardShowing = true
@@ -141,7 +219,7 @@ func keyboardWillHide(n:NSNotification) {
 }
 </code></pre>
 
-<p>還可以搭配 客製化 UITextView 鍵盤的 inputAccessoryView 這篇客製化鍵盤來達你的要求</p>
+<p>還可以搭配 客製化 UITextView 鍵盤的 inputAccessoryView 這篇客製化鍵盤來達你的要求<br>我將在下一章說明如何客製化 鍵盤的 inputAccessoryView</p>
 
       
     </div>
@@ -291,6 +369,10 @@ func keyboardWillHide(n:NSNotification) {
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/The-LiZ-World/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/">客製化 UITextView 鍵盤的 inputAccessoryView</a>
+          </li>
         
           <li>
             <a href="/The-LiZ-World/2016/02/21/Customizer-RichText-Editor-2/">iOS 實作 圖文編輯器 （二） UITextView 設定</a>

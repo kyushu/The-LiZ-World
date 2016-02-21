@@ -5,25 +5,25 @@
   
   <title>iOS 實作 圖文編輯器 （二） UITextView 設定 | The LiZ World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate
+  <meta name="description" content="##根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate
 1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍
 func textViewDidChangeSelection(textView: UITextView) {        
-  textView.scrollRangeToVisible(textView.selectedRa">
+  textView.scrollRangeToVisible(textView.selected">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 實作 圖文編輯器 （二） UITextView 設定">
 <meta property="og:url" content="http://kyushu.github.io/2016/02/21/Customizer-RichText-Editor-2/index.html">
 <meta property="og:site_name" content="The LiZ World">
-<meta property="og:description" content="根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate
+<meta property="og:description" content="##根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate
 1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍
 func textViewDidChangeSelection(textView: UITextView) {        
-  textView.scrollRangeToVisible(textView.selectedRa">
-<meta property="og:updated_time" content="2016-02-21T09:23:09.000Z">
+  textView.scrollRangeToVisible(textView.selected">
+<meta property="og:updated_time" content="2016-02-21T09:33:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 實作 圖文編輯器 （二） UITextView 設定">
-<meta name="twitter:description" content="根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate
+<meta name="twitter:description" content="##根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate
 1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍
 func textViewDidChangeSelection(textView: UITextView) {        
-  textView.scrollRangeToVisible(textView.selectedRa">
+  textView.scrollRangeToVisible(textView.selected">
   
     <link rel="alternate" href="/atom.xml" title="The LiZ World" type="application/atom+xml">
   
@@ -98,7 +98,7 @@ func textViewDidChangeSelection(textView: UITextView) {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate</p>
+        <p>##根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate</p>
 <h3 id="1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍"><a href="#1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍" class="headerlink" title="1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍"></a>1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍</h3><pre><code>
 func textViewDidChangeSelection(textView: UITextView) {        
   textView.scrollRangeToVisible(textView.selectedRange)
@@ -130,7 +130,9 @@ func textViewDidChange(textView: UITextView) {
 }
 </code></pre>
 
-<h3 id="3-鍵盤的設定"><a href="#3-鍵盤的設定" class="headerlink" title="3. 鍵盤的設定"></a>3. 鍵盤的設定</h3><p>在viewDidLoad 裡設定接收UIKeyboardNotification 的 方法<br><em><br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillShow:”, name: UIKeyboardWillShowNotification, object: nil)<br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillHide:”, name: UIKeyboardWillHideNotification, object: nil)<br></em></p>
+<h3 id="3-鍵盤的設定"><a href="#3-鍵盤的設定" class="headerlink" title="3. 鍵盤的設定"></a>3. 鍵盤的設定</h3><p><strong>在viewDidLoad 裡設定接收UIKeyboardNotification 的方法</strong></p>
+<p><strong><em>鍵盤由下方彈出時</em></strong><br><em><br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillShow:”, name: UIKeyboardWillShowNotification, object: nil)<br></em></p>
+<p><strong><em>鍵盤由收回至下方時</em></strong><br><em><br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillHide:”, name: UIKeyboardWillHideNotification, object: nil)<br></em></p>
 <pre><code>
 func keyboardWillShow(n:NSNotification) {
   self.keyboardShowing = true
@@ -149,7 +151,7 @@ func keyboardWillHide(n:NSNotification) {
 }
 </code></pre>
 
-<p>還可以搭配 客製化 UITextView 鍵盤的 inputAccessoryView 這篇客製化鍵盤來達你的要求</p>
+<p>還可以搭配 客製化 UITextView 鍵盤的 inputAccessoryView 這篇客製化鍵盤來達你的要求<br>我將在下一章說明如何客製化 鍵盤的 inputAccessoryView</p>
 
       
     </div>
@@ -164,6 +166,15 @@ func keyboardWillHide(n:NSNotification) {
   
     
 <nav id="article-nav">
+  
+    <a href="/The-LiZ-World/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          客製化 UITextView 鍵盤的 inputAccessoryView
+        
+      </div>
+    </a>
   
   
     <a href="/The-LiZ-World/2016/02/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -217,6 +228,10 @@ func keyboardWillHide(n:NSNotification) {
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/The-LiZ-World/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/">客製化 UITextView 鍵盤的 inputAccessoryView</a>
+          </li>
         
           <li>
             <a href="/The-LiZ-World/2016/02/21/Customizer-RichText-Editor-2/">iOS 實作 圖文編輯器 （二） UITextView 設定</a>

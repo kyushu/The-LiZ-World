@@ -3,21 +3,49 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | The LiZ World</title>
+  <title>客製化 UITextView 鍵盤的 inputAccessoryView | The LiZ World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="在使用 UITextView 的時候，我們可以對鍵盤的 inputAccessoryView 做簡單的客製化
+inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示
+
+程式碼如下
+// 建立一個 UIToolBar
+
+let keyboardToolBar = UIToolbar()
+keyboardToolBar.sizeToFit()  
+
+
+// 建立所要的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://kyushu.github.io/2016/02/21/hello-world/index.html">
+<meta property="og:title" content="客製化 UITextView 鍵盤的 inputAccessoryView">
+<meta property="og:url" content="http://kyushu.github.io/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/index.html">
 <meta property="og:site_name" content="The LiZ World">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-02-21T08:48:57.000Z">
+<meta property="og:description" content="在使用 UITextView 的時候，我們可以對鍵盤的 inputAccessoryView 做簡單的客製化
+inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示
+
+程式碼如下
+// 建立一個 UIToolBar
+
+let keyboardToolBar = UIToolbar()
+keyboardToolBar.sizeToFit()  
+
+
+// 建立所要的">
+<meta property="og:image" content="http://2.bp.blogspot.com/-RwChUep9MXg/VaPZtaxR4TI/AAAAAAAAABA/SkAelEYR_rc/s1600/keyboard.png">
+<meta property="og:updated_time" content="2016-02-21T09:51:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="客製化 UITextView 鍵盤的 inputAccessoryView">
+<meta name="twitter:description" content="在使用 UITextView 的時候，我們可以對鍵盤的 inputAccessoryView 做簡單的客製化
+inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示
+
+程式碼如下
+// 建立一個 UIToolBar
+
+let keyboardToolBar = UIToolbar()
+keyboardToolBar.sizeToFit()  
+
+
+// 建立所要的">
   
     <link rel="alternate" href="/atom.xml" title="The LiZ World" type="application/atom+xml">
   
@@ -70,10 +98,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Customizer-inputAccessoryView-Of-Keyboard" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/The-LiZ-World/2016/02/21/hello-world/" class="article-date">
-  <time datetime="2016-02-21T08:48:59.000Z" itemprop="datePublished">2016-02-21</time>
+    <a href="/The-LiZ-World/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/" class="article-date">
+  <time datetime="2016-02-21T09:35:00.000Z" itemprop="datePublished">2016-02-21</time>
 </a>
     
   </div>
@@ -84,7 +112,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      客製化 UITextView 鍵盤的 inputAccessoryView
     </h1>
   
 
@@ -92,41 +120,63 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>在使用 UITextView 的時候，我們可以對鍵盤的 inputAccessoryView 做簡單的客製化</p>
+<p>inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示</p>
+<p><img src="http://2.bp.blogspot.com/-RwChUep9MXg/VaPZtaxR4TI/AAAAAAAAABA/SkAelEYR_rc/s1600/keyboard.png"></p>
+<p>程式碼如下</p>
+<p>// 建立一個 UIToolBar</p>
+<pre><code>
+let keyboardToolBar = UIToolbar()
+keyboardToolBar.sizeToFit()  
+</code></pre>
+
+<p>// 建立所要的 Bar Button</p>
+<pre><code>
+let done = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "endEditingNow")
+
+let takePicture = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "openCameraOrAlbum")
+
+let flexible = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+
+let fixedSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+
+fixedSpace.width = 20.0  
+</code></pre>
+
+<p>// 將所有的 Bar Button 加入 Tool Bar</p>
+<pre><code>
+var toolbarButtons = [flexible, takePicture, fixedSpace, done, flexible]
+keyboardToolBar.setItems(toolbarButtons, animated: false)  
+</code></pre>
+
+<p>// 將TextView(UITextView)的 inputAccessoryView 設成此 Tool Bar </p>
+<pre><code>
+textView.inputAccessoryView = keyboardToolBar  
+</code></pre>
+
+
+<p>上述的程式碼可以加在 viewDidLoad 裡</p>
+<p>目前我測試的狀況是，用 UIToolBar 的話這個 Tool Bar 可以很完美的隨著鍵盤上升下降在正確的位置，如果是用 UIView 的話位置會不正常</p>
+<p>或許用UIView的話也是可行的，只是再多做一些設定，不過以我目前的狀況這樣就夠用了，等之後遇到再說吧</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://kyushu.github.io/2016/02/21/hello-world/" data-id="cikwcf7fm0003z13y7p82qvkg" class="article-share-link">Share</a>
+      <a data-url="http://kyushu.github.io/2016/02/21/Customizer-inputAccessoryView-Of-Keyboard/" data-id="cikwcyvml0000063yv2vbnnxf" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/The-LiZ-World/tags/iOS/">iOS</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/The-LiZ-World/2016/02/21/Customizer-RichText-Editor-2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          iOS 實作 圖文編輯器 （二） UITextView 設定
-        
-      </div>
-    </a>
   
-  
-    <a href="/The-LiZ-World/2016/02/21/Customizer_RichText_Editor_1/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/The-LiZ-World/2016/02/21/Customizer-RichText-Editor-2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">iOS 實作 圖文編輯器 （一） UITextView 與 Text Kit</div>
+      <div class="article-nav-title">iOS 實作 圖文編輯器 （二） UITextView 設定</div>
     </a>
   
 </nav>
