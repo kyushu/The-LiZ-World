@@ -91,44 +91,56 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate</p>
-<ol>
-<li><p>我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍<br>func textViewDidChangeSelection(textView: UITextView) {<br>   textView.scrollRangeToVisible(textView.selectedRange)<br>}</p>
-</li>
-<li><p>當鍵盤上升時，會自動的將游標那行上移到可視範圍</p>
-<pre><code>
-func textViewDidChange(textView: UITextView) {
-
-// 游標的位置
-let line = textView.caretRectForPosition(textView.selectedTextRange!.start)
-
-// 搭配 UIKeyboardWillShowNotification 時將鍵盤高度設定給 textView.contentInset.bottom
-let overflow = line.origin.y + line.size.height - (textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top)
-if overflow > 0 {
-   // We are at the bottom of the visible text and introduced
-   // a line feed, scroll down (iOS 7 does not do it)
-   // Scroll caret to visible area
-   var offset = textView.contentOffset
-   offset.y += overflow + 7; // leave 7 pixels margin
-
-   // setContentOffset:animated: 時 animated 要設為  false 不然 caret 會消失
-   UIView.animateWithDuration(1, animations: { () -> Void in
-       textView.setContentOffset(offset, animated: false)
-   })
-}
+<h3 id="1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍"><a href="#1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍" class="headerlink" title="1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍"></a>1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍</h3><pre><code>
+func textViewDidChangeSelection(textView: UITextView) {        
+  textView.scrollRangeToVisible(textView.selectedRange)
 }
 </code></pre>
-</li>
-<li><p>鍵盤的設定<br>在viewDidLoad 裡設定接收UIKeyboardNotification 的 方法<br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillShow:”, name: UIKeyboardWillShowNotification, object: nil)<br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillHide:”, name: UIKeyboardWillHideNotification, object: nil)</p>
-</li>
-</ol>
-<p>func keyboardWillShow(n:NSNotification) {<br>        self.keyboardShowing = true</p>
-<pre><code>let d = n.userInfo!
-var r = (d[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-r = textView.convertRect(r, fromView:nil)
-textView.contentInset.bottom = r.size.height
-textView.scrollIndicatorInsets.bottom = r.size.height
-</code></pre><p>}</p>
-<p>func keyboardWillHide(n:NSNotification) {<br>        self.keyboardShowing = false<br>        textView.contentInset = UIEdgeInsetsZero<br>        textView.scrollIndicatorInsets = UIEdgeInsetsZero<br>}</p>
+
+<h3 id="2-當鍵盤上升時，會自動的將游標那行上移到可視範圍"><a href="#2-當鍵盤上升時，會自動的將游標那行上移到可視範圍" class="headerlink" title="2. 當鍵盤上升時，會自動的將游標那行上移到可視範圍"></a>2. 當鍵盤上升時，會自動的將游標那行上移到可視範圍</h3><pre><code>
+func textViewDidChange(textView: UITextView) {
+
+  // 游標的位置
+  let line = textView.caretRectForPosition(textView.selectedTextRange!.start)
+
+  // 搭配 UIKeyboardWillShowNotification 時將鍵盤高度設定給 textView.contentInset.bottom
+  let overflow = line.origin.y + line.size.height - (textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top)
+
+  if overflow > 0 {
+      // We are at the bottom of the visible text and introduced
+      // a line feed, scroll down (iOS 7 does not do it)
+      // Scroll caret to visible area
+      var offset = textView.contentOffset
+      offset.y += overflow + 7; // leave 7 pixels margin
+
+      // setContentOffset:animated: 時 animated 要設為  false 不然 caret 會消失
+      UIView.animateWithDuration(1, animations: { () -> Void in
+          textView.setContentOffset(offset, animated: false)
+      })
+  }
+
+}
+</code></pre>
+
+<h3 id="3-鍵盤的設定"><a href="#3-鍵盤的設定" class="headerlink" title="3. 鍵盤的設定"></a>3. 鍵盤的設定</h3><p>在viewDidLoad 裡設定接收UIKeyboardNotification 的 方法<br><em><br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillShow:”, name: UIKeyboardWillShowNotification, object: nil)<br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillHide:”, name: UIKeyboardWillHideNotification, object: nil)<br></em></p>
+<pre><code>
+func keyboardWillShow(n:NSNotification) {
+  self.keyboardShowing = true
+
+  let d = n.userInfo!
+  var r = (d[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+  r = textView.convertRect(r, fromView:nil)
+  textView.contentInset.bottom = r.size.height
+  textView.scrollIndicatorInsets.bottom = r.size.height
+}
+
+func keyboardWillHide(n:NSNotification) {
+  self.keyboardShowing = false
+  textView.contentInset = UIEdgeInsetsZero
+  textView.scrollIndicatorInsets = UIEdgeInsetsZero
+}
+</code></pre>
+
 <p>還可以搭配 客製化 UITextView 鍵盤的 inputAccessoryView 這篇客製化鍵盤來達你的要求</p>
 
       
