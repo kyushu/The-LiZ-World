@@ -59,46 +59,22 @@
 
 
 
-<meta name="description" content="關於package.json裡設定  node.js 的 module  版號，使用的規則如下
-假設 package.json 裡的內容如下
-
-{
-  &quot;name&quot;: &quot;MyApp&quot;,
-  &quot;version&quot;: &quot;1.0.2&quot;,
-  &quot;private&quot;: true,
-  &quot;scripts&quot;: {
-    &quot;start&quot;: &quot;node ./bin/www&quot;
-  },
-  &quot;dependencies&quot;">
+<meta name="description" content="node.js 使用 passport 搭配 passport-local 驗證使用者登入
+/// 使用 passport/// 搭配 passport-local.Stragety 搭配 local data base 來做 user authenticate
+// 搭配 express 話的，需使用 express-session 來記錄使用者 session12var session = r">
 <meta property="og:type" content="article">
-<meta property="og:title" content="the_Rule_Of_version_Number_Of_Node.JS">
-<meta property="og:url" content="http://kyushu.github.io/2015/06/12/the-rule-of-ver-Num-of-Node/index.html">
+<meta property="og:title" content="node.js 使用 passport 搭配 passport-local 驗證使用者登入">
+<meta property="og:url" content="http://kyushu.github.io/2015/05/30/nodejs-passport-tutorial-1/index.html">
 <meta property="og:site_name" content="The LiZ World">
-<meta property="og:description" content="關於package.json裡設定  node.js 的 module  版號，使用的規則如下
-假設 package.json 裡的內容如下
-
-{
-  &quot;name&quot;: &quot;MyApp&quot;,
-  &quot;version&quot;: &quot;1.0.2&quot;,
-  &quot;private&quot;: true,
-  &quot;scripts&quot;: {
-    &quot;start&quot;: &quot;node ./bin/www&quot;
-  },
-  &quot;dependencies&quot;">
-<meta property="og:updated_time" content="2016-02-21T10:14:40.000Z">
+<meta property="og:description" content="node.js 使用 passport 搭配 passport-local 驗證使用者登入
+/// 使用 passport/// 搭配 passport-local.Stragety 搭配 local data base 來做 user authenticate
+// 搭配 express 話的，需使用 express-session 來記錄使用者 session12var session = r">
+<meta property="og:updated_time" content="2016-02-22T06:16:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="the_Rule_Of_version_Number_Of_Node.JS">
-<meta name="twitter:description" content="關於package.json裡設定  node.js 的 module  版號，使用的規則如下
-假設 package.json 裡的內容如下
-
-{
-  &quot;name&quot;: &quot;MyApp&quot;,
-  &quot;version&quot;: &quot;1.0.2&quot;,
-  &quot;private&quot;: true,
-  &quot;scripts&quot;: {
-    &quot;start&quot;: &quot;node ./bin/www&quot;
-  },
-  &quot;dependencies&quot;">
+<meta name="twitter:title" content="node.js 使用 passport 搭配 passport-local 驗證使用者登入">
+<meta name="twitter:description" content="node.js 使用 passport 搭配 passport-local 驗證使用者登入
+/// 使用 passport/// 搭配 passport-local.Stragety 搭配 local data base 來做 user authenticate
+// 搭配 express 話的，需使用 express-session 來記錄使用者 session12var session = r">
 
 
 
@@ -116,7 +92,7 @@
   };
 </script>
 
-  <title> the_Rule_Of_version_Number_Of_Node.JS | The LiZ World </title>
+  <title> node.js 使用 passport 搭配 passport-local 驗證使用者登入 | The LiZ World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -236,7 +212,7 @@
             
             
               
-                the_Rule_Of_version_Number_Of_Node.JS
+                node.js 使用 passport 搭配 passport-local 驗證使用者登入
               
             
           </h1>
@@ -248,8 +224,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-06-12T18:12:59+08:00" content="2015-06-12">
-              2015-06-12
+            <time itemprop="dateCreated" datetime="2015-05-30T14:11:13+08:00" content="2015-05-30">
+              2015-05-30
             </time>
           </span>
 
@@ -259,8 +235,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/The-LiZ-World/2015/06/12/the-rule-of-ver-Num-of-Node/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/12/the-rule-of-ver-Num-of-Node/" itemprop="commentsCount"></span>
+                <a href="/The-LiZ-World/2015/05/30/nodejs-passport-tutorial-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/30/nodejs-passport-tutorial-1/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -281,41 +257,16 @@
       
 
       
-        <p>關於package.json裡設定  node.js 的 module  版號，使用的規則如下</p>
-<p>假設 package.json 裡的內容如下</p>
-<pre><code>
-{
-  "name": "MyApp",
-  "version": "1.0.2",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "body-parser": "~1.12.4",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "express": "~4.12.4",
-    "jade": "~1.9.2",
-    "morgan": "~1.5.3",
-    "serve-favicon": "~2.2.1",
-    "mongodb": "2.0.33",
-    "monk": "1.0.1",
-    "connect-flash": "0.1.1",
-    "express-validator": "2.10.0",
-    "express-session": "1.11.2",
-    "express-messages": "0.0.2",
-    "multer": "0.1.8",
-    "moment": "2.10.3"
-  }
-}  
-</code></pre>
-
-
-<p>以 morgan: “~1.5.3” 為例</p>
-<p>1 :  main version， 主要版號<br>5 :  sub version，次版號，有新功能時會增加<br>3 :  bug version, bug 版號，有修正 bug 時會增加</p>
-<p>至於版號前面的符號所代表的意思如下：<br>“~1.5.3” 代表 1.5.x （Bug修正等等更新，舉例：會更新1.5.4， 1.6.1就不會）<br>“^1.5.3” 則相當於會更新到1.x.x （新版，有新功能，但會相容，舉例：會更新1.6.3， 2.0.1就不會）<br>“1.5.3” 永遠只會用1.5.3這版本（也就是如果新版修正了1.5.3的 bug， 你用 npm update 也不會更新）</p>
-<p>基本上當你使用 npm install morgan –save 的時候<br>它預設會寫入 “morgan”: “＾1.5.3”</p>
+        <p>node.js 使用 passport 搭配 passport-local 驗證使用者登入</p>
+<p>/// 使用 passport<br>/// 搭配 passport-local.Stragety 搭配 local data base 來做 user authenticate</p>
+<p>// 搭配 express 話的，需使用 express-session 來記錄使用者 session<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);</span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure></p>
+<p>// Handle Express Sessions (<a href="https://github.com/expressjs/session" target="_blank" rel="external">https://github.com/expressjs/session</a>)<br>// 1. 當 session 被新建出來的時候且尚未被修改時就稱為 “Uninitialized”<br>// 2. “saveUninitialized” 設為 “true” 會強制將 Uninitialized session 儲存起來<br>// 3. 如果有使用 passport的話，passport 會新增一個 empty Passport object 到 session<br>//    供之後做為驗證使用者的用途使用，而這樣的狀況會被視為修改 session，進而導致它被儲存起來<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.use(session(&#123;</span><br><span class="line">  saveUninitialized: <span class="literal">false</span>,</span><br><span class="line">  resave: <span class="literal">true</span>,</span><br><span class="line">  secret: <span class="string">'secret'</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure></p>
+<p>// Setp 1. 需要先對 passport 做初始化跟使用 sesion<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.use(passport.initialize());</span><br><span class="line">app.use(passport.session());</span><br></pre></td></tr></table></figure></p>
+<p>// Setp2. 對 user 做 serialize, 處理當 user 己經 authenticate 時 passport 會存下 user.id<br>//        當需要 user object 時, 再根據此 user.id 去資料庫將該 user.object 抓出來使用<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passport.serializeUser(function(user, done)&#123;&#10;  done(null, user.id);&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">passport.deserializeUser(<span class="function"><span class="keyword">function</span>(<span class="params">id, done</span>)</span>&#123;</span><br><span class="line">  User.getUserById(id, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>)</span>&#123;</span><br><span class="line">    done(err, user);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>// Setp 3. 安裝並使用 passport-local 建立 Local Stragety<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var LocalStrategy = require(&#39;passport-local&#39;).Strategy;</span><br></pre></td></tr></table></figure></p>
+<p>// Step 4. 設定 passport 使用這個 local stragety<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">passport.use(<span class="keyword">new</span> LocalStrategy(<span class="function"><span class="keyword">function</span>(<span class="params">username, password, done</span>) </span>&#123;</span><br><span class="line">  User.getUserByUsername(username, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</span><br><span class="line">    <span class="keyword">if</span>(!user) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Unknown User'</span>);</span><br><span class="line">      <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, &#123;message: <span class="string">'Unknown User'</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    User.comparePassword(password, user.password, <span class="function"><span class="keyword">function</span>(<span class="params">err, isMatch</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</span><br><span class="line">      <span class="keyword">if</span>(isMatch) &#123;</span><br><span class="line">        <span class="keyword">return</span> done(<span class="literal">null</span>, user);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Invalid Password'</span>);</span><br><span class="line">        <span class="keyword">return</span> done(<span class="literal">null</span>, <span class="literal">false</span>, &#123;message: <span class="string">'Invalid Password'</span>&#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure></p>
+<p>// Setp 5. 設定路由使用 passport 來驗證 user<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">router.post(<span class="string">'/login'</span>,</span><br><span class="line">            passport.authenticate(<span class="string">'local'</span>, &#123;failureRedirect: <span class="string">'/users/login'</span>, failureFlash: <span class="string">'Invalid username or password'</span>&#125;),</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="string">'Authentication Successful'</span>);</span><br><span class="line">              req.flash(<span class="string">'success'</span>, <span class="string">'You are logged in'</span>);</span><br><span class="line">              res.redirect(<span class="string">'/'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            );</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -333,16 +284,12 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/The-LiZ-World/2015/06/12/apply-iOS-Notification-flow/" rel="next" title="iOS 申請 推播 (Push Notification) 流程">
-                <i class="fa fa-chevron-left"></i> iOS 申請 推播 (Push Notification) 流程
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/The-LiZ-World/2015/07/06/Built-in-Camera-Interface-CH/" rel="prev" title="將內建的相機介面改成中文">
-                將內建的相機介面改成中文 <i class="fa fa-chevron-right"></i>
+              <a href="/The-LiZ-World/2015/06/09/customize-CheckBok-UIView/" rel="prev" title="客製 Check Box">
+                客製 Check Box <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -723,9 +670,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'thelizworld';
-      var disqus_identifier = '2015/06/12/the-rule-of-ver-Num-of-Node/';
-      var disqus_title = 'the_Rule_Of_version_Number_Of_Node.JS';
-      var disqus_url = 'http://kyushu.github.io/2015/06/12/the-rule-of-ver-Num-of-Node/';
+      var disqus_identifier = '2015/05/30/nodejs-passport-tutorial-1/';
+      var disqus_title = 'node.js 使用 passport 搭配 passport-local 驗證使用者登入';
+      var disqus_url = 'http://kyushu.github.io/2015/05/30/nodejs-passport-tutorial-1/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

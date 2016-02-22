@@ -60,21 +60,18 @@
 
 
 <meta name="description" content="OK, I just copy from someone  kerker~~
-Objective-C 版本
-UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];view2.backgroundColor = [UIColor redColor];[self.view addSubview:view2]">
+Objective-C 版本1UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];&amp;#10;view2.backgroundColor = [UIColor redColor];&amp;#10;[self.view addSubv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 設定 UIView 的某幾個角為圓角">
 <meta property="og:url" content="http://kyushu.github.io/2015/07/14/customize-corner-of-UIView/index.html">
 <meta property="og:site_name" content="The LiZ World">
 <meta property="og:description" content="OK, I just copy from someone  kerker~~
-Objective-C 版本
-UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];view2.backgroundColor = [UIColor redColor];[self.view addSubview:view2]">
-<meta property="og:updated_time" content="2016-02-21T10:18:28.000Z">
+Objective-C 版本1UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];&amp;#10;view2.backgroundColor = [UIColor redColor];&amp;#10;[self.view addSubv">
+<meta property="og:updated_time" content="2016-02-22T06:28:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 設定 UIView 的某幾個角為圓角">
 <meta name="twitter:description" content="OK, I just copy from someone  kerker~~
-Objective-C 版本
-UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];view2.backgroundColor = [UIColor redColor];[self.view addSubview:view2]">
+Objective-C 版本1UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];&amp;#10;view2.backgroundColor = [UIColor redColor];&amp;#10;[self.view addSubv">
 
 
 
@@ -258,13 +255,11 @@ UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];view2
 
       
         <p>OK, I just copy from someone  kerker~~</p>
-<p>Objective-C 版本</p>
-<p>UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];<br>view2.backgroundColor = [UIColor redColor];<br>[self.view addSubview:view2];</p>
-<p>UIBezierPath <em>maskPath = [UIBezierPath bezierPathWithRoundedRect:view2.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];<br>CAShapeLayer </em>maskLayer = [[CAShapeLayer alloc] init];<br>maskLayer.frame = view2.bounds;<br>maskLayer.path = maskPath.CGPath;<br>view2.layer.mask = maskLayer;</p>
-<p>Swift 版本<br>// 1. Need to be Rounded View<br>let roundedView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))<br>roundedView.backgroundColor = UIColor.redColor()</p>
-<p>// 2. Setup BezierPath for rounding corners<br>let maskPath = UIBezierPath(roundedRect: roundedView.bounds, byRoundingCorners: UIRectCorner.BottomLeft | UIRectCorner.BottomRight, cornerRadii: CGSize(width: 5, height: 5))</p>
-<p>// 3. Instant and configure a CAShaperLayer for mask view<br>let maskLayer = CAShaperLayer()<br>maskLayer.frame = roundedView.bounds<br>maskLayer.path = maskPath.CGPath</p>
-<p>// 4. maske roundedView by “maskLayer”<br>roundedView.layer.mask = maskLayer</p>
+<p>Objective-C 版本<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];&#10;view2.backgroundColor = [UIColor redColor];&#10;[self.view addSubview:view2];&#10;&#10;UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view2.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];&#10;CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];&#10;maskLayer.frame = view2.bounds;&#10;maskLayer.path = maskPath.CGPath;&#10;view2.layer.mask = maskLayer;</span><br></pre></td></tr></table></figure></p>
+<p>Swift 版本<br>// 1. Need to be Rounded View<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> roundedView = <span class="type">UIView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="number">120</span>, height: <span class="number">120</span>))</span><br><span class="line">roundedView.backgroundColor = <span class="type">UIColor</span>.redColor()</span><br></pre></td></tr></table></figure></p>
+<p>// 2. Setup BezierPath for rounding corners<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> maskPath = <span class="type">UIBezierPath</span>(roundedRect: roundedView.bounds, byRoundingCorners: <span class="type">UIRectCorner</span>.<span class="type">BottomLeft</span> | <span class="type">UIRectCorner</span>.<span class="type">BottomRight</span>, cornerRadii: <span class="type">CGSize</span>(width: <span class="number">5</span>, height: <span class="number">5</span>))</span><br></pre></td></tr></table></figure></p>
+<p>// 3. Instant and configure a CAShaperLayer for mask view<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> maskLayer = <span class="type">CAShaperLayer</span>()</span><br><span class="line">maskLayer.frame = roundedView.bounds</span><br><span class="line">maskLayer.path = maskPath.<span class="type">CGPath</span></span><br></pre></td></tr></table></figure></p>
+<p>// 4. maske roundedView by “maskLayer”<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roundedView.layer.mask = maskLayer</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -367,7 +362,7 @@ UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];view2
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -377,7 +372,7 @@ UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];view2
           
             <div class="site-state-item site-state-tags">
               <a href="/The-LiZ-World/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>

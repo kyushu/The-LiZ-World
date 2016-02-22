@@ -63,13 +63,8 @@
 inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示
 
 程式碼如下
-// 建立一個 UIToolBar
-
-let keyboardToolBar = UIToolbar()
-keyboardToolBar.sizeToFit()  
-
-
-// 建立所要的">
+// 建立一個 UIToolBar12let keyboardToolBar = UIToolbar()keyboardToolBar.sizeToFit()
+// 建立所要的 Bar">
 <meta property="og:type" content="article">
 <meta property="og:title" content="客製化 UITextView 鍵盤的 inputAccessoryView">
 <meta property="og:url" content="http://kyushu.github.io/2015/07/13/Customizer-inputAccessoryView-Of-Keyboard/index.html">
@@ -78,28 +73,18 @@ keyboardToolBar.sizeToFit()
 inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示
 
 程式碼如下
-// 建立一個 UIToolBar
-
-let keyboardToolBar = UIToolbar()
-keyboardToolBar.sizeToFit()  
-
-
-// 建立所要的">
+// 建立一個 UIToolBar12let keyboardToolBar = UIToolbar()keyboardToolBar.sizeToFit()
+// 建立所要的 Bar">
 <meta property="og:image" content="http://2.bp.blogspot.com/-RwChUep9MXg/VaPZtaxR4TI/AAAAAAAAABA/SkAelEYR_rc/s1600/keyboard.png">
-<meta property="og:updated_time" content="2016-02-21T10:22:16.000Z">
+<meta property="og:updated_time" content="2016-02-22T06:22:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="客製化 UITextView 鍵盤的 inputAccessoryView">
 <meta name="twitter:description" content="在使用 UITextView 的時候，我們可以對鍵盤的 inputAccessoryView 做簡單的客製化
 inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示
 
 程式碼如下
-// 建立一個 UIToolBar
-
-let keyboardToolBar = UIToolbar()
-keyboardToolBar.sizeToFit()  
-
-
-// 建立所要的">
+// 建立一個 UIToolBar12let keyboardToolBar = UIToolbar()keyboardToolBar.sizeToFit()
+// 建立所要的 Bar">
 
 
 
@@ -286,37 +271,10 @@ keyboardToolBar.sizeToFit()
 <p>inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示</p>
 <p><img src="http://2.bp.blogspot.com/-RwChUep9MXg/VaPZtaxR4TI/AAAAAAAAABA/SkAelEYR_rc/s1600/keyboard.png"></p>
 <p>程式碼如下</p>
-<p>// 建立一個 UIToolBar</p>
-<pre><code>
-let keyboardToolBar = UIToolbar()
-keyboardToolBar.sizeToFit()  
-</code></pre>
-
-<p>// 建立所要的 Bar Button</p>
-<pre><code>
-let done = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "endEditingNow")
-
-let takePicture = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "openCameraOrAlbum")
-
-let flexible = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-
-let fixedSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
-
-fixedSpace.width = 20.0  
-</code></pre>
-
-<p>// 將所有的 Bar Button 加入 Tool Bar</p>
-<pre><code>
-var toolbarButtons = [flexible, takePicture, fixedSpace, done, flexible]
-keyboardToolBar.setItems(toolbarButtons, animated: false)  
-</code></pre>
-
-<p>// 將TextView(UITextView)的 inputAccessoryView 設成此 Tool Bar </p>
-<pre><code>
-textView.inputAccessoryView = keyboardToolBar  
-</code></pre>
-
-
+<p>// 建立一個 UIToolBar<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> keyboardToolBar = <span class="type">UIToolbar</span>()</span><br><span class="line">keyboardToolBar.sizeToFit()</span><br></pre></td></tr></table></figure></p>
+<p>// 建立所要的 Bar Button<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> done = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">Done</span>, target: <span class="keyword">self</span>, action: <span class="string">"endEditingNow"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> takePicture = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">Camera</span>, target: <span class="keyword">self</span>, action: <span class="string">"openCameraOrAlbum"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> flexible = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">FlexibleSpace</span>, target: <span class="literal">nil</span>, action: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fixedSpace = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">FixedSpace</span>, target: <span class="literal">nil</span>, action: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">fixedSpace.width = <span class="number">20.0</span></span><br></pre></td></tr></table></figure></p>
+<p>// 將所有的 Bar Button 加入 Tool Bar<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> toolbarButtons = [flexible, takePicture, fixedSpace, done, flexible]</span><br><span class="line">keyboardToolBar.setItems(toolbarButtons, animated: <span class="literal">false</span>)</span><br></pre></td></tr></table></figure></p>
+<p>// 將TextView(UITextView)的 inputAccessoryView 設成此 Tool Bar<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textView.inputAccessoryView = keyboardToolBar</span><br></pre></td></tr></table></figure></p>
 <p>上述的程式碼可以加在 viewDidLoad 裡</p>
 <p>目前我測試的狀況是，用 UIToolBar 的話這個 Tool Bar 可以很完美的隨著鍵盤上升下降在正確的位置，如果是用 UIView 的話位置會不正常</p>
 <p>或許用UIView的話也是可行的，只是再多做一些設定，不過以我目前的狀況這樣就夠用了，等之後遇到再說吧</p>
@@ -422,7 +380,7 @@ textView.inputAccessoryView = keyboardToolBar
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -432,7 +390,7 @@ textView.inputAccessoryView = keyboardToolBar
           
             <div class="site-state-item site-state-tags">
               <a href="/The-LiZ-World/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>

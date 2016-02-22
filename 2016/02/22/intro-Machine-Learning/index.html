@@ -43,7 +43,7 @@
 <link href="/The-LiZ-World/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="node.js," />
+  <meta name="keywords" content="Macine Learning," />
 
 
 
@@ -59,46 +59,28 @@
 
 
 
-<meta name="description" content="關於package.json裡設定  node.js 的 module  版號，使用的規則如下
-假設 package.json 裡的內容如下
-
-{
-  &quot;name&quot;: &quot;MyApp&quot;,
-  &quot;version&quot;: &quot;1.0.2&quot;,
-  &quot;private&quot;: true,
-  &quot;scripts&quot;: {
-    &quot;start&quot;: &quot;node ./bin/www&quot;
-  },
-  &quot;dependencies&quot;">
+<meta name="description" content="將 Machine Learning 問題的分類列出來，並針對每個做簡單的說明
+&amp;lt;!--
+| Problems where ML is often applied | Techniques to solve those problems | application of these solved problems |
+| ---: | :---: | :--- |
+| CLASSIFICATION">
 <meta property="og:type" content="article">
-<meta property="og:title" content="the_Rule_Of_version_Number_Of_Node.JS">
-<meta property="og:url" content="http://kyushu.github.io/2015/06/12/the-rule-of-ver-Num-of-Node/index.html">
+<meta property="og:title" content="Machine Learning 介紹">
+<meta property="og:url" content="http://kyushu.github.io/2016/02/22/intro-Machine-Learning/index.html">
 <meta property="og:site_name" content="The LiZ World">
-<meta property="og:description" content="關於package.json裡設定  node.js 的 module  版號，使用的規則如下
-假設 package.json 裡的內容如下
-
-{
-  &quot;name&quot;: &quot;MyApp&quot;,
-  &quot;version&quot;: &quot;1.0.2&quot;,
-  &quot;private&quot;: true,
-  &quot;scripts&quot;: {
-    &quot;start&quot;: &quot;node ./bin/www&quot;
-  },
-  &quot;dependencies&quot;">
-<meta property="og:updated_time" content="2016-02-21T10:14:40.000Z">
+<meta property="og:description" content="將 Machine Learning 問題的分類列出來，並針對每個做簡單的說明
+&amp;lt;!--
+| Problems where ML is often applied | Techniques to solve those problems | application of these solved problems |
+| ---: | :---: | :--- |
+| CLASSIFICATION">
+<meta property="og:updated_time" content="2016-02-22T03:53:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="the_Rule_Of_version_Number_Of_Node.JS">
-<meta name="twitter:description" content="關於package.json裡設定  node.js 的 module  版號，使用的規則如下
-假設 package.json 裡的內容如下
-
-{
-  &quot;name&quot;: &quot;MyApp&quot;,
-  &quot;version&quot;: &quot;1.0.2&quot;,
-  &quot;private&quot;: true,
-  &quot;scripts&quot;: {
-    &quot;start&quot;: &quot;node ./bin/www&quot;
-  },
-  &quot;dependencies&quot;">
+<meta name="twitter:title" content="Machine Learning 介紹">
+<meta name="twitter:description" content="將 Machine Learning 問題的分類列出來，並針對每個做簡單的說明
+&amp;lt;!--
+| Problems where ML is often applied | Techniques to solve those problems | application of these solved problems |
+| ---: | :---: | :--- |
+| CLASSIFICATION">
 
 
 
@@ -116,7 +98,7 @@
   };
 </script>
 
-  <title> the_Rule_Of_version_Number_Of_Node.JS | The LiZ World </title>
+  <title> Machine Learning 介紹 | The LiZ World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -236,7 +218,7 @@
             
             
               
-                the_Rule_Of_version_Number_Of_Node.JS
+                Machine Learning 介紹
               
             
           </h1>
@@ -248,8 +230,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-06-12T18:12:59+08:00" content="2015-06-12">
-              2015-06-12
+            <time itemprop="dateCreated" datetime="2016-02-22T09:52:25+08:00" content="2016-02-22">
+              2016-02-22
             </time>
           </span>
 
@@ -259,8 +241,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/The-LiZ-World/2015/06/12/the-rule-of-ver-Num-of-Node/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/12/the-rule-of-ver-Num-of-Node/" itemprop="commentsCount"></span>
+                <a href="/The-LiZ-World/2016/02/22/intro-Machine-Learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/22/intro-Machine-Learning/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -281,41 +263,75 @@
       
 
       
-        <p>關於package.json裡設定  node.js 的 module  版號，使用的規則如下</p>
-<p>假設 package.json 裡的內容如下</p>
-<pre><code>
-{
-  "name": "MyApp",
-  "version": "1.0.2",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "body-parser": "~1.12.4",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "express": "~4.12.4",
-    "jade": "~1.9.2",
-    "morgan": "~1.5.3",
-    "serve-favicon": "~2.2.1",
-    "mongodb": "2.0.33",
-    "monk": "1.0.1",
-    "connect-flash": "0.1.1",
-    "express-validator": "2.10.0",
-    "express-session": "1.11.2",
-    "express-messages": "0.0.2",
-    "multer": "0.1.8",
-    "moment": "2.10.3"
-  }
-}  
-</code></pre>
-
-
-<p>以 morgan: “~1.5.3” 為例</p>
-<p>1 :  main version， 主要版號<br>5 :  sub version，次版號，有新功能時會增加<br>3 :  bug version, bug 版號，有修正 bug 時會增加</p>
-<p>至於版號前面的符號所代表的意思如下：<br>“~1.5.3” 代表 1.5.x （Bug修正等等更新，舉例：會更新1.5.4， 1.6.1就不會）<br>“^1.5.3” 則相當於會更新到1.x.x （新版，有新功能，但會相容，舉例：會更新1.6.3， 2.0.1就不會）<br>“1.5.3” 永遠只會用1.5.3這版本（也就是如果新版修正了1.5.3的 bug， 你用 npm update 也不會更新）</p>
-<p>基本上當你使用 npm install morgan –save 的時候<br>它預設會寫入 “morgan”: “＾1.5.3”</p>
+        <p>將 Machine Learning 問題的分類列出來，並針對每個做簡單的說明</p>
+<!--
+| Problems where ML is often applied | Techniques to solve those problems | application of these solved problems |
+| ---: | :---: | :--- |
+| CLASSIFICATION           | NAIVE BAYES             | SPAMDETECTION        |
+| CLUSTERING               | K-NEAREST NEIGHBOR      | TOPIC MODELING       |
+| ASSOCIATION DETECTION    | SUPPORT VECTOR MACHINES | SENTIMENT ANALYSIS   |
+| ANOMALY DETECTION        | NEURAL NETWORKS         | RECOMMENDATIONS      |
+| DIMENSIONALITY REDUCTION | DECISION TREES          | GENRE CLASSIFICATION |
+ -->
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Problems where ML is often applied</th>
+<th style="text-align:center">Techniques to solve those problems</th>
+<th style="text-align:left">application of these solved problems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">CLASSIFICATION<br>CLUSTERING <br>ASSOCIATION DETECTION<br>ANOMALY DETECTION<br>DIMENSIONALITY REDUCTION</td>
+<td style="text-align:center">NAVIE BAYES<br>K-NEAREST NEIGHBOR<br>SUPPORT VECTOR MACHINES<br>NEURAL NETWORKS<br>DECISION TREES<br>LINEAR REGRESSION<br>LOGISTIC REGRESSION</td>
+<td style="text-align:left">SPAMDETECTION<br>TOPIC MODELING<br>SENTIMENT ANALYSIS<br>RECOMMENDATIONS<br>GENRE CLASSIFICATION<br>QUANT TRADING</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CLASSIFICATION-SUPERVISED-LEARNING"><a href="#CLASSIFICATION-SUPERVISED-LEARNING" class="headerlink" title="CLASSIFICATION: SUPERVISED LEARNING"></a>CLASSIFICATION: <strong>SUPERVISED LEARNING</strong></h2><p>以”垃圾郵件”為例子：</p>
+<ol>
+<li>我們有一大筆資料(<strong><em>Test Data</em></strong>)： <strong>所有的郵件</strong></li>
+<li>將這一大筆資料分類（<strong><em>Categories</em></strong>)： <strong>分成”垃圾郵件” 跟 “普通郵件”</strong></li>
+<li>我們有一組正確的分類資料 (<strong><em>Training Data</em></strong>)： <strong>一組己經標示出 “垃圾郵件” 跟 “普通郵件” 的一堆郵件</strong></li>
+<li>將這一大筆資料(<strong><em>Test Data</em></strong>)根據正確的資料(<strong><em>Training Data</em></strong>)分類(<strong><em>Classifier</em></strong>)： <strong>將收到的這些郵件用 Training Data 分類為 “垃圾郵件” 跟 “普通郵件”</strong></li>
+</ol>
+<h4 id="CLASSIFIER"><a href="#CLASSIFIER" class="headerlink" title="CLASSIFIER:"></a>CLASSIFIER:</h4><ol>
+<li>NAIVE BAYES Classifier</li>
+<li>K-NEAREST NEIGHBOR Classifier</li>
+<li>SUPPORT VECTOR MACHINE Classifier</li>
+</ol>
+<h2 id="CLUSTERING-UNSUPERVISED-LEARNING"><a href="#CLUSTERING-UNSUPERVISED-LEARNING" class="headerlink" title="CLUSTERING: UNSUPERVISED LEARNING"></a>CLUSTERING: <strong>UNSUPERVISED LEARNING</strong></h2><p>以 “FACEBOOK 使用者” 為例子：</p>
+<ol>
+<li>給定一組資料： 所有的 FACEBOOK 使用者</li>
+<li>將這組資料分作許多小組，而每個小組裡的資料彼此間的相似度高於其他不同小組的資料： (Disjoint communities of FACEBOOK users)</li>
+<li>CLUSTERING 跟 CLASSIFICATION 一樣都是將資料分組，但是 CLUSTERING 更專注於問題的分類： 當有一個新的使用者註冊，這個使用者會比較喜歡那一個社群？</li>
+<li>所以 CLUSTERING 是更專注在將問題分組到已知的分類的這個程序上</li>
+</ol>
+<h4 id="CLUSTERING-ALGORITHMS"><a href="#CLUSTERING-ALGORITHMS" class="headerlink" title="CLUSTERING ALGORITHMS:"></a>CLUSTERING ALGORITHMS:</h4><ol>
+<li>K-MEANS CLUSTERING</li>
+<li>HIERARCHICAL CLUSTERING</li>
+<li>DENSITY-BASED CLUSTERING</li>
+<li>DISTRIBUTION-BASED CLUSTERING</li>
+</ol>
+<h2 id="ASSOCIATION-RULE-LEARNING"><a href="#ASSOCIATION-RULE-LEARNING" class="headerlink" title="ASSOCIATION RULE LEARNING:"></a>ASSOCIATION RULE LEARNING:</h2><p>假設你是一位在貿易公司上班的產品經理</p>
+<ol>
+<li>你負責販售行動裝置的配件，例如 手機殻，充電器等等</li>
+<li>你的工作就是將商品的標格根據市場的狀況做調整，並判斷顧客買東西的關聯性</li>
+<li>例如，買手機充電器的顧客通常也會買充電電池</li>
+<li>根據這樣的資訊，你可以將手機充電器跟充電電池綁定一起販售</li>
+<li>而驗證這樣的行為就是 ASSOCIATION RULE LEARNING</li>
+</ol>
+<h2 id="ANOMALY-DETECTION"><a href="#ANOMALY-DETECTION" class="headerlink" title="ANOMALY DETECTION:"></a>ANOMALY DETECTION:</h2><p>假設你是某大學某實驗室的網路負責人</p>
+<ol>
+<li>你每天可能會處理上百個網路攻擊事件</li>
+<li>你怎麼知道進來的網路活動是有害的還是無害的？</li>
+<li>或許你是使用 Intrusion Detection System 來幫你判斷</li>
+<li>而這個 Intrusion Detection System 就是使用 ANOMALY DETECTION 的技術</li>
+</ol>
+<p>當我們嚐試去標示進來的網路活動是”有害的”還是”無害的”，這時候 ANOMALY DETECTION 可以被視為 CLASSIFICATION PROBLEM (SUPERVISED LEARNING)</p>
+<p>當檢視這些網路活動是無害的標準是什麼的時候，這時候 ANOMALY DETECTION 可以被視為 CLUSTERING PROBLEM (UNSUPERVISED LEARNING)</p>
+<h2 id="DIMENSIONALITY-REDUCTION"><a href="#DIMENSIONALITY-REDUCTION" class="headerlink" title="DIMENSIONALITY REDUCTION:"></a>DIMENSIONALITY REDUCTION:</h2><p>任何一個複雜的資料要將他表示的很完整，勢必需要表示很多特徵，而這樣會造成資料的維度大幅增加，這時就需要 DIMENSIONALITY REDUCTION 的技術來將資料有效的降底其維度。</p>
 
       
     </div>
@@ -324,7 +340,7 @@
       
         <div class="post-tags">
           
-            <a href="/The-LiZ-World/tags/node-js/" rel="tag">#node.js</a>
+            <a href="/The-LiZ-World/tags/Macine-Learning/" rel="tag">#Macine Learning</a>
           
         </div>
       
@@ -333,17 +349,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/The-LiZ-World/2015/06/12/apply-iOS-Notification-flow/" rel="next" title="iOS 申請 推播 (Push Notification) 流程">
-                <i class="fa fa-chevron-left"></i> iOS 申請 推播 (Push Notification) 流程
+              <a href="/The-LiZ-World/2015/11/20/iOS-Control-Orientation/" rel="next" title="如何控制 iOS App 裡 View 的轉向 (How to control View's Orientation)">
+                <i class="fa fa-chevron-left"></i> 如何控制 iOS App 裡 View 的轉向 (How to control View's Orientation)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/The-LiZ-World/2015/07/06/Built-in-Camera-Interface-CH/" rel="prev" title="將內建的相機介面改成中文">
-                將內建的相機介面改成中文 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -461,7 +473,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CLASSIFICATION-SUPERVISED-LEARNING"><span class="nav-number">1.</span> <span class="nav-text">CLASSIFICATION: SUPERVISED LEARNING</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CLASSIFIER"><span class="nav-number">1.0.1.</span> <span class="nav-text">CLASSIFIER:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLUSTERING-UNSUPERVISED-LEARNING"><span class="nav-number">2.</span> <span class="nav-text">CLUSTERING: UNSUPERVISED LEARNING</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CLUSTERING-ALGORITHMS"><span class="nav-number">2.0.1.</span> <span class="nav-text">CLUSTERING ALGORITHMS:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ASSOCIATION-RULE-LEARNING"><span class="nav-number">3.</span> <span class="nav-text">ASSOCIATION RULE LEARNING:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ANOMALY-DETECTION"><span class="nav-number">4.</span> <span class="nav-text">ANOMALY DETECTION:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DIMENSIONALITY-REDUCTION"><span class="nav-number">5.</span> <span class="nav-text">DIMENSIONALITY REDUCTION:</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -723,9 +735,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'thelizworld';
-      var disqus_identifier = '2015/06/12/the-rule-of-ver-Num-of-Node/';
-      var disqus_title = 'the_Rule_Of_version_Number_Of_Node.JS';
-      var disqus_url = 'http://kyushu.github.io/2015/06/12/the-rule-of-ver-Num-of-Node/';
+      var disqus_identifier = '2016/02/22/intro-Machine-Learning/';
+      var disqus_title = 'Machine Learning 介紹';
+      var disqus_url = 'http://kyushu.github.io/2016/02/22/intro-Machine-Learning/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

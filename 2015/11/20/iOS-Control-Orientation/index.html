@@ -59,28 +59,16 @@
 
 
 
-<meta name="description" content="基本上 控制 View 的轉向主要有三個 Method 可以呼叫
-
-override func supportedInterfaceOrientations() -&amp;gt; UIInterfaceOrientationMask
-override func shouldAutorotate() -&amp;gt; Bool
-override func preferredInterfaceOrientationForPr">
+<meta name="description" content="基本上 控制 View 的轉向主要有三個 Method 可以呼叫123override func supportedInterfaceOrientations() -&amp;gt; UIInterfaceOrientationMaskoverride func shouldAutorotate() -&amp;gt; Booloverride func preferredInterfaceOrientation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何控制 iOS App 裡 View 的轉向 (How to control View's Orientation)">
 <meta property="og:url" content="http://kyushu.github.io/2015/11/20/iOS-Control-Orientation/index.html">
 <meta property="og:site_name" content="The LiZ World">
-<meta property="og:description" content="基本上 控制 View 的轉向主要有三個 Method 可以呼叫
-
-override func supportedInterfaceOrientations() -&amp;gt; UIInterfaceOrientationMask
-override func shouldAutorotate() -&amp;gt; Bool
-override func preferredInterfaceOrientationForPr">
-<meta property="og:updated_time" content="2016-02-21T10:31:27.000Z">
+<meta property="og:description" content="基本上 控制 View 的轉向主要有三個 Method 可以呼叫123override func supportedInterfaceOrientations() -&amp;gt; UIInterfaceOrientationMaskoverride func shouldAutorotate() -&amp;gt; Booloverride func preferredInterfaceOrientation">
+<meta property="og:updated_time" content="2016-02-22T06:21:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何控制 iOS App 裡 View 的轉向 (How to control View's Orientation)">
-<meta name="twitter:description" content="基本上 控制 View 的轉向主要有三個 Method 可以呼叫
-
-override func supportedInterfaceOrientations() -&amp;gt; UIInterfaceOrientationMask
-override func shouldAutorotate() -&amp;gt; Bool
-override func preferredInterfaceOrientationForPr">
+<meta name="twitter:description" content="基本上 控制 View 的轉向主要有三個 Method 可以呼叫123override func supportedInterfaceOrientations() -&amp;gt; UIInterfaceOrientationMaskoverride func shouldAutorotate() -&amp;gt; Booloverride func preferredInterfaceOrientation">
 
 
 
@@ -263,42 +251,11 @@ override func preferredInterfaceOrientationForPr">
       
 
       
-        <p>基本上 控制 View 的轉向主要有三個 Method 可以呼叫</p>
-<pre><code>
-override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
-override func shouldAutorotate() -> Bool
-override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation  
-</code></pre>
-
+        <p>基本上 控制 View 的轉向主要有三個 Method 可以呼叫<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">supportedInterfaceOrientations</span><span class="params">()</span></span> -&gt; <span class="type">UIInterfaceOrientationMask</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">shouldAutorotate</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">preferredInterfaceOrientationForPresentation</span><span class="params">()</span></span> -&gt; <span class="type">UIInterfaceOrientation</span></span><br></pre></td></tr></table></figure></p>
 <p>不過我只使用其中兩種即可控制 View 的轉向，以下是範例：<br>在你想要View 是顯示在 Portrait 的 View Controller 裡加上以下兩個 method:</p>
-<pre><code>
-override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-    return [UIInterfaceOrientationMask.Portrait ,UIInterfaceOrientationMask.PortraitUpsideDown]
-}
-override func shouldAutorotate() -> Bool {
-    if (UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeLeft ||
-        UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeRight ||
-        UIDevice.currentDevice().orientation == UIDeviceOrientation.Unknown) {
-            return false
-    }
-    else {
-        return true
-    }
-}  
-</code></pre>
-
-
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">supportedInterfaceOrientations</span><span class="params">()</span></span> -&gt; <span class="type">UIInterfaceOrientationMask</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="type">UIInterfaceOrientationMask</span>.<span class="type">Portrait</span> ,<span class="type">UIInterfaceOrientationMask</span>.<span class="type">PortraitUpsideDown</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">shouldAutorotate</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="type">UIDevice</span>.currentDevice().orientation == <span class="type">UIDeviceOrientation</span>.<span class="type">LandscapeLeft</span> ||</span><br><span class="line">        <span class="type">UIDevice</span>.currentDevice().orientation == <span class="type">UIDeviceOrientation</span>.<span class="type">LandscapeRight</span> ||</span><br><span class="line">        <span class="type">UIDevice</span>.currentDevice().orientation == <span class="type">UIDeviceOrientation</span>.<span class="type">Unknown</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果你是使用在 root View Controller  是 UINavigationController 的情況下，因為當發生 Rotation 時，UINavigationController 的 shouldAutorotate()會被執行，而它不會將此訊息往它的 child View Controller 傳，所以你實作在 ViewController 裡的 shouldAutorotate() 就不會被執行，所以你要幫 UINavigationController 加上 Extension 如下：</p>
-<pre><code>
-extension UINavigationController {
-
-    public override func shouldAutorotate() -> Bool {
-        return (self.topViewController?.shouldAutorotate())!
-    }
-
-}  
-</code></pre>
-
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UINavigationController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">shouldAutorotate</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">self</span>.topViewController?.shouldAutorotate())!</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如此，UINavigationController就會去執行目前顯示在畫面的 ViewController 的 shouldAutorotate()</p>
 <p>That’s it</p>
 
@@ -319,6 +276,10 @@ extension UINavigationController {
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/The-LiZ-World/2016/02/22/intro-Machine-Learning/" rel="prev" title="Machine Learning 介紹">
+                Machine Learning 介紹 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -393,7 +354,7 @@ extension UINavigationController {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -403,7 +364,7 @@ extension UINavigationController {
           
             <div class="site-state-item site-state-tags">
               <a href="/The-LiZ-World/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>

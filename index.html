@@ -223,6 +223,165 @@
             
               
                 
+                <a class="post-title-link" href="/The-LiZ-World/2016/02/22/intro-Machine-Learning/" itemprop="url">
+                  Machine Learning 介紹
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-02-22T09:52:25+08:00" content="2016-02-22">
+              2016-02-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/The-LiZ-World/2016/02/22/intro-Machine-Learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/22/intro-Machine-Learning/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>將 Machine Learning 問題的分類列出來，並針對每個做簡單的說明</p>
+<!--
+| Problems where ML is often applied | Techniques to solve those problems | application of these solved problems |
+| ---: | :---: | :--- |
+| CLASSIFICATION           | NAIVE BAYES             | SPAMDETECTION        |
+| CLUSTERING               | K-NEAREST NEIGHBOR      | TOPIC MODELING       |
+| ASSOCIATION DETECTION    | SUPPORT VECTOR MACHINES | SENTIMENT ANALYSIS   |
+| ANOMALY DETECTION        | NEURAL NETWORKS         | RECOMMENDATIONS      |
+| DIMENSIONALITY REDUCTION | DECISION TREES          | GENRE CLASSIFICATION |
+ -->
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Problems where ML is often applied</th>
+<th style="text-align:center">Techniques to solve those problems</th>
+<th style="text-align:left">application of these solved problems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">CLASSIFICATION<br>CLUSTERING <br>ASSOCIATION DETECTION<br>ANOMALY DETECTION<br>DIMENSIONALITY REDUCTION</td>
+<td style="text-align:center">NAVIE BAYES<br>K-NEAREST NEIGHBOR<br>SUPPORT VECTOR MACHINES<br>NEURAL NETWORKS<br>DECISION TREES<br>LINEAR REGRESSION<br>LOGISTIC REGRESSION</td>
+<td style="text-align:left">SPAMDETECTION<br>TOPIC MODELING<br>SENTIMENT ANALYSIS<br>RECOMMENDATIONS<br>GENRE CLASSIFICATION<br>QUANT TRADING</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CLASSIFICATION-SUPERVISED-LEARNING"><a href="#CLASSIFICATION-SUPERVISED-LEARNING" class="headerlink" title="CLASSIFICATION: SUPERVISED LEARNING"></a>CLASSIFICATION: <strong>SUPERVISED LEARNING</strong></h2><p>以”垃圾郵件”為例子：</p>
+<ol>
+<li>我們有一大筆資料(<strong><em>Test Data</em></strong>)： <strong>所有的郵件</strong></li>
+<li>將這一大筆資料分類（<strong><em>Categories</em></strong>)： <strong>分成”垃圾郵件” 跟 “普通郵件”</strong></li>
+<li>我們有一組正確的分類資料 (<strong><em>Training Data</em></strong>)： <strong>一組己經標示出 “垃圾郵件” 跟 “普通郵件” 的一堆郵件</strong></li>
+<li>將這一大筆資料(<strong><em>Test Data</em></strong>)根據正確的資料(<strong><em>Training Data</em></strong>)分類(<strong><em>Classifier</em></strong>)： <strong>將收到的這些郵件用 Training Data 分類為 “垃圾郵件” 跟 “普通郵件”</strong></li>
+</ol>
+<h4 id="CLASSIFIER"><a href="#CLASSIFIER" class="headerlink" title="CLASSIFIER:"></a>CLASSIFIER:</h4><ol>
+<li>NAIVE BAYES Classifier</li>
+<li>K-NEAREST NEIGHBOR Classifier</li>
+<li>SUPPORT VECTOR MACHINE Classifier</li>
+</ol>
+<h2 id="CLUSTERING-UNSUPERVISED-LEARNING"><a href="#CLUSTERING-UNSUPERVISED-LEARNING" class="headerlink" title="CLUSTERING: UNSUPERVISED LEARNING"></a>CLUSTERING: <strong>UNSUPERVISED LEARNING</strong></h2><p>以 “FACEBOOK 使用者” 為例子：</p>
+<ol>
+<li>給定一組資料： 所有的 FACEBOOK 使用者</li>
+<li>將這組資料分作許多小組，而每個小組裡的資料彼此間的相似度高於其他不同小組的資料： (Disjoint communities of FACEBOOK users)</li>
+<li>CLUSTERING 跟 CLASSIFICATION 一樣都是將資料分組，但是 CLUSTERING 更專注於問題的分類： 當有一個新的使用者註冊，這個使用者會比較喜歡那一個社群？</li>
+<li>所以 CLUSTERING 是更專注在將問題分組到已知的分類的這個程序上</li>
+</ol>
+<h4 id="CLUSTERING-ALGORITHMS"><a href="#CLUSTERING-ALGORITHMS" class="headerlink" title="CLUSTERING ALGORITHMS:"></a>CLUSTERING ALGORITHMS:</h4><ol>
+<li>K-MEANS CLUSTERING</li>
+<li>HIERARCHICAL CLUSTERING</li>
+<li>DENSITY-BASED CLUSTERING</li>
+<li>DISTRIBUTION-BASED CLUSTERING</li>
+</ol>
+<h2 id="ASSOCIATION-RULE-LEARNING"><a href="#ASSOCIATION-RULE-LEARNING" class="headerlink" title="ASSOCIATION RULE LEARNING:"></a>ASSOCIATION RULE LEARNING:</h2><p>假設你是一位在貿易公司上班的產品經理</p>
+<ol>
+<li>你負責販售行動裝置的配件，例如 手機殻，充電器等等</li>
+<li>你的工作就是將商品的標格根據市場的狀況做調整，並判斷顧客買東西的關聯性</li>
+<li>例如，買手機充電器的顧客通常也會買充電電池</li>
+<li>根據這樣的資訊，你可以將手機充電器跟充電電池綁定一起販售</li>
+<li>而驗證這樣的行為就是 ASSOCIATION RULE LEARNING</li>
+</ol>
+<h2 id="ANOMALY-DETECTION"><a href="#ANOMALY-DETECTION" class="headerlink" title="ANOMALY DETECTION:"></a>ANOMALY DETECTION:</h2><p>假設你是某大學某實驗室的網路負責人</p>
+<ol>
+<li>你每天可能會處理上百個網路攻擊事件</li>
+<li>你怎麼知道進來的網路活動是有害的還是無害的？</li>
+<li>或許你是使用 Intrusion Detection System 來幫你判斷</li>
+<li>而這個 Intrusion Detection System 就是使用 ANOMALY DETECTION 的技術</li>
+</ol>
+<p>當我們嚐試去標示進來的網路活動是”有害的”還是”無害的”，這時候 ANOMALY DETECTION 可以被視為 CLASSIFICATION PROBLEM (SUPERVISED LEARNING)</p>
+<p>當檢視這些網路活動是無害的標準是什麼的時候，這時候 ANOMALY DETECTION 可以被視為 CLUSTERING PROBLEM (UNSUPERVISED LEARNING)</p>
+<h2 id="DIMENSIONALITY-REDUCTION"><a href="#DIMENSIONALITY-REDUCTION" class="headerlink" title="DIMENSIONALITY REDUCTION:"></a>DIMENSIONALITY REDUCTION:</h2><p>任何一個複雜的資料要將他表示的很完整，勢必需要表示很多特徵，而這樣會造成資料的維度大幅增加，這時就需要 DIMENSIONALITY REDUCTION 的技術來將資料有效的降底其維度。</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/The-LiZ-World/2015/11/20/iOS-Control-Orientation/" itemprop="url">
                   如何控制 iOS App 裡 View 的轉向 (How to control View's Orientation)
                 </a>
@@ -272,42 +431,11 @@
       
         
           
-            <p>基本上 控制 View 的轉向主要有三個 Method 可以呼叫</p>
-<pre><code>
-override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
-override func shouldAutorotate() -> Bool
-override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation  
-</code></pre>
-
+            <p>基本上 控制 View 的轉向主要有三個 Method 可以呼叫<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">supportedInterfaceOrientations</span><span class="params">()</span></span> -&gt; <span class="type">UIInterfaceOrientationMask</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">shouldAutorotate</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">preferredInterfaceOrientationForPresentation</span><span class="params">()</span></span> -&gt; <span class="type">UIInterfaceOrientation</span></span><br></pre></td></tr></table></figure></p>
 <p>不過我只使用其中兩種即可控制 View 的轉向，以下是範例：<br>在你想要View 是顯示在 Portrait 的 View Controller 裡加上以下兩個 method:</p>
-<pre><code>
-override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-    return [UIInterfaceOrientationMask.Portrait ,UIInterfaceOrientationMask.PortraitUpsideDown]
-}
-override func shouldAutorotate() -> Bool {
-    if (UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeLeft ||
-        UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeRight ||
-        UIDevice.currentDevice().orientation == UIDeviceOrientation.Unknown) {
-            return false
-    }
-    else {
-        return true
-    }
-}  
-</code></pre>
-
-
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">supportedInterfaceOrientations</span><span class="params">()</span></span> -&gt; <span class="type">UIInterfaceOrientationMask</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="type">UIInterfaceOrientationMask</span>.<span class="type">Portrait</span> ,<span class="type">UIInterfaceOrientationMask</span>.<span class="type">PortraitUpsideDown</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">shouldAutorotate</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="type">UIDevice</span>.currentDevice().orientation == <span class="type">UIDeviceOrientation</span>.<span class="type">LandscapeLeft</span> ||</span><br><span class="line">        <span class="type">UIDevice</span>.currentDevice().orientation == <span class="type">UIDeviceOrientation</span>.<span class="type">LandscapeRight</span> ||</span><br><span class="line">        <span class="type">UIDevice</span>.currentDevice().orientation == <span class="type">UIDeviceOrientation</span>.<span class="type">Unknown</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果你是使用在 root View Controller  是 UINavigationController 的情況下，因為當發生 Rotation 時，UINavigationController 的 shouldAutorotate()會被執行，而它不會將此訊息往它的 child View Controller 傳，所以你實作在 ViewController 裡的 shouldAutorotate() 就不會被執行，所以你要幫 UINavigationController 加上 Extension 如下：</p>
-<pre><code>
-extension UINavigationController {
-
-    public override func shouldAutorotate() -> Bool {
-        return (self.topViewController?.shouldAutorotate())!
-    }
-
-}  
-</code></pre>
-
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UINavigationController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">shouldAutorotate</span><span class="params">()</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">self</span>.topViewController?.shouldAutorotate())!</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如此，UINavigationController就會去執行目前顯示在畫面的 ViewController 的 shouldAutorotate()</p>
 <p>That’s it</p>
 
@@ -402,94 +530,7 @@ extension UINavigationController {
           
             <p>這篇是從這位 作者 的 github 節錄下來的，若對 iOS 的動畫有興趣，可以關注這位作者</p>
 <p>直接上 Code</p>
-<pre><code>
-import UIKit
-import QuartzCore
-
-enum AnimationDirection: Int {
-    case Positive = 1
-    case Negative = -1
-}
-class thirdViewController: UIViewController {
-
-    @IBOutlet weak var bgImage: UIImageView!
-    @IBOutlet weak var label1: UILabel!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.repeat1()
-        // Do any additional setup after loading the view.
-    }
-    func repeat1(){
-        delay(seconds: 1){
-            self.cubeTransition(label: self.label1, text: "SuperXlx", direction: AnimationDirection.Positive)
-            self.fadeImageView(self.bgImage, toImage: UIImage(named: "bg-sunny")!)
-            self.repeat2()
-        }
-    }
-    func repeat2(){
-        delay(seconds: 1){
-            self.fadeImageView(self.bgImage, toImage: UIImage(named: "bg-snowy")!)
-            self.cubeTransition(label: self.label1, text: "StrongX", direction: AnimationDirection.Negative)
-            self.repeat1()
-        }
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    func fadeImageView(imageView: UIImageView, toImage: UIImage) {
-
-        UIView.transitionWithView(imageView, duration: 1.0,
-            options: .TransitionCrossDissolve, animations: {
-                imageView.image = toImage
-            }, completion: nil)
-
-    }
-
-    func cubeTransition(#label: UILabel, text: String, direction: AnimationDirection) {
-
-        let auxLabel = UILabel(frame: label.frame)
-        auxLabel.text = text
-        auxLabel.font = label.font
-        auxLabel.textAlignment = label.textAlignment
-        auxLabel.textColor = label.textColor
-      //  auxLabel.backgroundColor = label.backgroundColor
-
-        // A1,A2: 先將 auxLabel 顯示成高度 y = 0.1 的狀態，也就是壓扁的樣子
-        // A1.
-        let auxLabelOffset = CGFloat(direction.rawValue) * label.frame.size.height/2.0
-        // A2.
-        auxLabel.transform = CGAffineTransformConcat(
-            CGAffineTransformMakeScale(1.0, 0.1),
-            CGAffineTransformMakeTranslation(0.0, auxLabelOffset))
-
-        // A3. 將 auxLabel 加入 subView
-        label.superview!.addSubview(auxLabel)
-
-        // A4. 執行動面
-        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
-            // A4-1. 將 auxLabel 回復成跟原本的 label 一樣高度
-            auxLabel.transform = CGAffineTransformIdentity
-
-
-            // A4-2. 將原本的 label 的高度壓成 y = 0.1 的大小，並向上移動，達到向上翻轉的效果
-            label.transform = CGAffineTransformConcat(
-                // A4-2-1. label 高度縮小
-                CGAffineTransformMakeScale(1.0, 0.1),
-                // A4-2-2. label 向上移動
-                CGAffineTransformMakeTranslation(0.0, -auxLabelOffset))
-            }, completion: {_ in
-
-                // 最後還是由 label 顯示最後的文字，並把 auxLabel 移除
-                label.text = auxLabel.text
-                label.transform = CGAffineTransformIdentity
-
-                auxLabel.removeFromSuperview()
-        })
-
-    }
-}
-</code></pre>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> QuartzCore</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">AnimationDirection</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Positive</span> = <span class="number">1</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">Negative</span> = -<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">thirdViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> bgImage: <span class="type">UIImageView</span>!</span><br><span class="line">    <span class="preprocessor">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> label1: <span class="type">UILabel</span>!</span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        <span class="keyword">self</span>.repeat1()</span><br><span class="line">        <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">repeat1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        delay(seconds: <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">self</span>.cubeTransition(label: <span class="keyword">self</span>.label1, text: <span class="string">"SuperXlx"</span>, direction: <span class="type">AnimationDirection</span>.<span class="type">Positive</span>)</span><br><span class="line">            <span class="keyword">self</span>.fadeImageView(<span class="keyword">self</span>.bgImage, toImage: <span class="type">UIImage</span>(named: <span class="string">"bg-sunny"</span>)!)</span><br><span class="line">            <span class="keyword">self</span>.repeat2()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">repeat2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        delay(seconds: <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">self</span>.fadeImageView(<span class="keyword">self</span>.bgImage, toImage: <span class="type">UIImage</span>(named: <span class="string">"bg-snowy"</span>)!)</span><br><span class="line">            <span class="keyword">self</span>.cubeTransition(label: <span class="keyword">self</span>.label1, text: <span class="string">"StrongX"</span>, direction: <span class="type">AnimationDirection</span>.<span class="type">Negative</span>)</span><br><span class="line">            <span class="keyword">self</span>.repeat1()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.didReceiveMemoryWarning()</span><br><span class="line">        <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">fadeImageView</span><span class="params">(imageView: UIImageView, toImage: UIImage)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">UIView</span>.transitionWithView(imageView, duration: <span class="number">1.0</span>,</span><br><span class="line">            options: .<span class="type">TransitionCrossDissolve</span>, animations: &#123;</span><br><span class="line">                imageView.image = toImage</span><br><span class="line">            &#125;, completion: <span class="literal">nil</span>)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">cubeTransition</span><span class="params">(#label: UILabel, text: String, direction: AnimationDirection)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> auxLabel = <span class="type">UILabel</span>(frame: label.frame)</span><br><span class="line">        auxLabel.text = text</span><br><span class="line">        auxLabel.font = label.font</span><br><span class="line">        auxLabel.textAlignment = label.textAlignment</span><br><span class="line">        auxLabel.textColor = label.textColor</span><br><span class="line">      <span class="comment">//  auxLabel.backgroundColor = label.backgroundColor</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// A1,A2: 先將 auxLabel 顯示成高度 y = 0.1 的狀態，也就是壓扁的樣子</span></span><br><span class="line">        <span class="comment">// A1.</span></span><br><span class="line">        <span class="keyword">let</span> auxLabelOffset = <span class="type">CGFloat</span>(direction.rawValue) * label.frame.size.height/<span class="number">2.0</span></span><br><span class="line">        <span class="comment">// A2.</span></span><br><span class="line">        auxLabel.transform = <span class="type">CGAffineTransformConcat</span>(</span><br><span class="line">            <span class="type">CGAffineTransformMakeScale</span>(<span class="number">1.0</span>, <span class="number">0.1</span>),</span><br><span class="line">            <span class="type">CGAffineTransformMakeTranslation</span>(<span class="number">0.0</span>, auxLabelOffset))</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// A3. 將 auxLabel 加入 subView</span></span><br><span class="line">        label.superview!.addSubview(auxLabel)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// A4. 執行動面</span></span><br><span class="line">        <span class="type">UIView</span>.animateWithDuration(<span class="number">0.5</span>, delay: <span class="number">0.0</span>, options: .<span class="type">CurveEaseOut</span>, animations: &#123;</span><br><span class="line">            <span class="comment">// A4-1. 將 auxLabel 回復成跟原本的 label 一樣高度</span></span><br><span class="line">            auxLabel.transform = <span class="type">CGAffineTransformIdentity</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">// A4-2. 將原本的 label 的高度壓成 y = 0.1 的大小，並向上移動，達到向上翻轉的效果</span></span><br><span class="line">            label.transform = <span class="type">CGAffineTransformConcat</span>(</span><br><span class="line">                <span class="comment">// A4-2-1. label 高度縮小</span></span><br><span class="line">                <span class="type">CGAffineTransformMakeScale</span>(<span class="number">1.0</span>, <span class="number">0.1</span>),</span><br><span class="line">                <span class="comment">// A4-2-2. label 向上移動</span></span><br><span class="line">                <span class="type">CGAffineTransformMakeTranslation</span>(<span class="number">0.0</span>, -auxLabelOffset))</span><br><span class="line">            &#125;, completion: &#123;<span class="number">_</span> <span class="keyword">in</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 最後還是由 label 顯示最後的文字，並把 auxLabel 移除</span></span><br><span class="line">                label.text = auxLabel.text</span><br><span class="line">                label.transform = <span class="type">CGAffineTransformIdentity</span></span><br><span class="line">                </span><br><span class="line">                auxLabel.removeFromSuperview()</span><br><span class="line">        &#125;)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -580,13 +621,11 @@ class thirdViewController: UIViewController {
         
           
             <p>OK, I just copy from someone  kerker~~</p>
-<p>Objective-C 版本</p>
-<p>UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];<br>view2.backgroundColor = [UIColor redColor];<br>[self.view addSubview:view2];</p>
-<p>UIBezierPath <em>maskPath = [UIBezierPath bezierPathWithRoundedRect:view2.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];<br>CAShapeLayer </em>maskLayer = [[CAShapeLayer alloc] init];<br>maskLayer.frame = view2.bounds;<br>maskLayer.path = maskPath.CGPath;<br>view2.layer.mask = maskLayer;</p>
-<p>Swift 版本<br>// 1. Need to be Rounded View<br>let roundedView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))<br>roundedView.backgroundColor = UIColor.redColor()</p>
-<p>// 2. Setup BezierPath for rounding corners<br>let maskPath = UIBezierPath(roundedRect: roundedView.bounds, byRoundingCorners: UIRectCorner.BottomLeft | UIRectCorner.BottomRight, cornerRadii: CGSize(width: 5, height: 5))</p>
-<p>// 3. Instant and configure a CAShaperLayer for mask view<br>let maskLayer = CAShaperLayer()<br>maskLayer.frame = roundedView.bounds<br>maskLayer.path = maskPath.CGPath</p>
-<p>// 4. maske roundedView by “maskLayer”<br>roundedView.layer.mask = maskLayer</p>
+<p>Objective-C 版本<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(120, 10, 80, 80)];&#10;view2.backgroundColor = [UIColor redColor];&#10;[self.view addSubview:view2];&#10;&#10;UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view2.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(10, 10)];&#10;CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];&#10;maskLayer.frame = view2.bounds;&#10;maskLayer.path = maskPath.CGPath;&#10;view2.layer.mask = maskLayer;</span><br></pre></td></tr></table></figure></p>
+<p>Swift 版本<br>// 1. Need to be Rounded View<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> roundedView = <span class="type">UIView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="number">120</span>, height: <span class="number">120</span>))</span><br><span class="line">roundedView.backgroundColor = <span class="type">UIColor</span>.redColor()</span><br></pre></td></tr></table></figure></p>
+<p>// 2. Setup BezierPath for rounding corners<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> maskPath = <span class="type">UIBezierPath</span>(roundedRect: roundedView.bounds, byRoundingCorners: <span class="type">UIRectCorner</span>.<span class="type">BottomLeft</span> | <span class="type">UIRectCorner</span>.<span class="type">BottomRight</span>, cornerRadii: <span class="type">CGSize</span>(width: <span class="number">5</span>, height: <span class="number">5</span>))</span><br></pre></td></tr></table></figure></p>
+<p>// 3. Instant and configure a CAShaperLayer for mask view<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> maskLayer = <span class="type">CAShaperLayer</span>()</span><br><span class="line">maskLayer.frame = roundedView.bounds</span><br><span class="line">maskLayer.path = maskPath.<span class="type">CGPath</span></span><br></pre></td></tr></table></figure></p>
+<p>// 4. maske roundedView by “maskLayer”<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roundedView.layer.mask = maskLayer</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -681,37 +720,10 @@ class thirdViewController: UIViewController {
 <p>inputAccessoryView 就是鍵盤最上面的那條 Tool Bar 如下圖所示</p>
 <p><img src="http://2.bp.blogspot.com/-RwChUep9MXg/VaPZtaxR4TI/AAAAAAAAABA/SkAelEYR_rc/s1600/keyboard.png"></p>
 <p>程式碼如下</p>
-<p>// 建立一個 UIToolBar</p>
-<pre><code>
-let keyboardToolBar = UIToolbar()
-keyboardToolBar.sizeToFit()  
-</code></pre>
-
-<p>// 建立所要的 Bar Button</p>
-<pre><code>
-let done = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "endEditingNow")
-
-let takePicture = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Camera, target: self, action: "openCameraOrAlbum")
-
-let flexible = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-
-let fixedSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
-
-fixedSpace.width = 20.0  
-</code></pre>
-
-<p>// 將所有的 Bar Button 加入 Tool Bar</p>
-<pre><code>
-var toolbarButtons = [flexible, takePicture, fixedSpace, done, flexible]
-keyboardToolBar.setItems(toolbarButtons, animated: false)  
-</code></pre>
-
-<p>// 將TextView(UITextView)的 inputAccessoryView 設成此 Tool Bar </p>
-<pre><code>
-textView.inputAccessoryView = keyboardToolBar  
-</code></pre>
-
-
+<p>// 建立一個 UIToolBar<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> keyboardToolBar = <span class="type">UIToolbar</span>()</span><br><span class="line">keyboardToolBar.sizeToFit()</span><br></pre></td></tr></table></figure></p>
+<p>// 建立所要的 Bar Button<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> done = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">Done</span>, target: <span class="keyword">self</span>, action: <span class="string">"endEditingNow"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> takePicture = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">Camera</span>, target: <span class="keyword">self</span>, action: <span class="string">"openCameraOrAlbum"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> flexible = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">FlexibleSpace</span>, target: <span class="literal">nil</span>, action: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fixedSpace = <span class="type">UIBarButtonItem</span>(barButtonSystemItem: <span class="type">UIBarButtonSystemItem</span>.<span class="type">FixedSpace</span>, target: <span class="literal">nil</span>, action: <span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">fixedSpace.width = <span class="number">20.0</span></span><br></pre></td></tr></table></figure></p>
+<p>// 將所有的 Bar Button 加入 Tool Bar<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> toolbarButtons = [flexible, takePicture, fixedSpace, done, flexible]</span><br><span class="line">keyboardToolBar.setItems(toolbarButtons, animated: <span class="literal">false</span>)</span><br></pre></td></tr></table></figure></p>
+<p>// 將TextView(UITextView)的 inputAccessoryView 設成此 Tool Bar<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textView.inputAccessoryView = keyboardToolBar</span><br></pre></td></tr></table></figure></p>
 <p>上述的程式碼可以加在 viewDidLoad 裡</p>
 <p>目前我測試的狀況是，用 UIToolBar 的話這個 Tool Bar 可以很完美的隨著鍵盤上升下降在正確的位置，如果是用 UIView 的話位置會不正常</p>
 <p>或許用UIView的話也是可行的，只是再多做一些設定，不過以我目前的狀況這樣就夠用了，等之後遇到再說吧</p>
@@ -806,58 +818,12 @@ textView.inputAccessoryView = keyboardToolBar
         
           
             <p>##根據  iOS 實作 圖文編輯器（一）裡的 UITextViewDelegate</p>
-<h3 id="1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍"><a href="#1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍" class="headerlink" title="1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍"></a>1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍</h3><pre><code>
-func textViewDidChangeSelection(textView: UITextView) {        
-  textView.scrollRangeToVisible(textView.selectedRange)
-}
-</code></pre>
-
-<h3 id="2-當鍵盤上升時，會自動的將游標那行上移到可視範圍"><a href="#2-當鍵盤上升時，會自動的將游標那行上移到可視範圍" class="headerlink" title="2. 當鍵盤上升時，會自動的將游標那行上移到可視範圍"></a>2. 當鍵盤上升時，會自動的將游標那行上移到可視範圍</h3><pre><code>
-func textViewDidChange(textView: UITextView) {
-
-  // 游標的位置
-  let line = textView.caretRectForPosition(textView.selectedTextRange!.start)
-
-  // 搭配 UIKeyboardWillShowNotification 時將鍵盤高度設定給 textView.contentInset.bottom
-  let overflow = line.origin.y + line.size.height - (textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top)
-
-  if overflow > 0 {
-      // We are at the bottom of the visible text and introduced
-      // a line feed, scroll down (iOS 7 does not do it)
-      // Scroll caret to visible area
-      var offset = textView.contentOffset
-      offset.y += overflow + 7; // leave 7 pixels margin
-
-      // setContentOffset:animated: 時 animated 要設為  false 不然 caret 會消失
-      UIView.animateWithDuration(1, animations: { () -> Void in
-          textView.setContentOffset(offset, animated: false)
-      })
-  }
-
-}
-</code></pre>
-
+<h3 id="1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍"><a href="#1-我們可以設定當游標移到那，UITextView-就會將游標所在的範圍移到可視範圍" class="headerlink" title="1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍"></a>1. 我們可以設定當游標移到那，UITextView 就會將游標所在的範圍移到可視範圍</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">textViewDidChangeSelection</span><span class="params">(textView: UITextView)</span></span> &#123;        </span><br><span class="line">  textView.scrollRangeToVisible(textView.selectedRange)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-當鍵盤上升時，會自動的將游標那行上移到可視範圍"><a href="#2-當鍵盤上升時，會自動的將游標那行上移到可視範圍" class="headerlink" title="2. 當鍵盤上升時，會自動的將游標那行上移到可視範圍"></a>2. 當鍵盤上升時，會自動的將游標那行上移到可視範圍</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">textViewDidChange</span><span class="params">(textView: UITextView)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">  <span class="comment">// 游標的位置</span></span><br><span class="line">  <span class="keyword">let</span> line = textView.caretRectForPosition(textView.selectedTextRange!.start)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 搭配 UIKeyboardWillShowNotification 時將鍵盤高度設定給 textView.contentInset.bottom</span></span><br><span class="line">  <span class="keyword">let</span> overflow = line.origin.y + line.size.height - (textView.contentOffset.y + textView.bounds.size.height - textView.contentInset.bottom - textView.contentInset.top)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> overflow &gt; <span class="number">0</span> &#123;</span><br><span class="line">      <span class="comment">// We are at the bottom of the visible text and introduced</span></span><br><span class="line">      <span class="comment">// a line feed, scroll down (iOS 7 does not do it)</span></span><br><span class="line">      <span class="comment">// Scroll caret to visible area</span></span><br><span class="line">      <span class="keyword">var</span> offset = textView.contentOffset</span><br><span class="line">      offset.y += overflow + <span class="number">7</span>; <span class="comment">// leave 7 pixels margin</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">// setContentOffset:animated: 時 animated 要設為  false 不然 caret 會消失</span></span><br><span class="line">      <span class="type">UIView</span>.animateWithDuration(<span class="number">1</span>, animations: &#123; () -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">          textView.setContentOffset(offset, animated: <span class="literal">false</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-鍵盤的設定"><a href="#3-鍵盤的設定" class="headerlink" title="3. 鍵盤的設定"></a>3. 鍵盤的設定</h3><p><strong>在viewDidLoad 裡設定接收UIKeyboardNotification 的方法</strong></p>
 <p><strong><em>鍵盤由下方彈出時</em></strong><br><em><br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillShow:”, name: UIKeyboardWillShowNotification, object: nil)<br></em></p>
 <p><strong><em>鍵盤由收回至下方時</em></strong><br><em><br>NSNotificationCenter.defaultCenter().addObserver(self, selector: “keyboardWillHide:”, name: UIKeyboardWillHideNotification, object: nil)<br></em></p>
-<pre><code>
-func keyboardWillShow(n:NSNotification) {
-  self.keyboardShowing = true
-
-  let d = n.userInfo!
-  var r = (d[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-  r = textView.convertRect(r, fromView:nil)
-  textView.contentInset.bottom = r.size.height
-  textView.scrollIndicatorInsets.bottom = r.size.height
-}
-
-func keyboardWillHide(n:NSNotification) {
-  self.keyboardShowing = false
-  textView.contentInset = UIEdgeInsetsZero
-  textView.scrollIndicatorInsets = UIEdgeInsetsZero
-}
-</code></pre>
-
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">keyboardWillShow</span><span class="params">(n:NSNotification)</span></span> &#123;</span><br><span class="line">  <span class="keyword">self</span>.keyboardShowing = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> d = n.userInfo!</span><br><span class="line">  <span class="keyword">var</span> r = (d[<span class="type">UIKeyboardFrameEndUserInfoKey</span>] <span class="keyword">as</span>! <span class="type">NSValue</span>).<span class="type">CGRectValue</span>()</span><br><span class="line">  r = textView.convertRect(r, fromView:<span class="literal">nil</span>)</span><br><span class="line">  textView.contentInset.bottom = r.size.height</span><br><span class="line">  textView.scrollIndicatorInsets.bottom = r.size.height</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">keyboardWillHide</span><span class="params">(n:NSNotification)</span></span> &#123;</span><br><span class="line">  <span class="keyword">self</span>.keyboardShowing = <span class="literal">false</span></span><br><span class="line">  textView.contentInset = <span class="type">UIEdgeInsetsZero</span></span><br><span class="line">  textView.scrollIndicatorInsets = <span class="type">UIEdgeInsetsZero</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>還可以搭配 客製化 UITextView 鍵盤的 inputAccessoryView 這篇客製化鍵盤來達你的要求<br>我將在下一章說明如何客製化 鍵盤的 inputAccessoryView</p>
 
           
@@ -1293,159 +1259,14 @@ func keyboardWillHide(n:NSNotification) {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/The-LiZ-World/2015/06/09/customize-CheckBok-UIView/" itemprop="url">
-                  客製 Check Box
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-06-09T18:06:03+08:00" content="2015-06-09">
-              2015-06-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/The-LiZ-World/2015/06/09/customize-CheckBok-UIView/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/09/customize-CheckBok-UIView/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>
-建立一個 UIView 的 Check Box，不使用圖片，直接將打勾畫在UIView 上
-
-class CheckBox: UIView {
-
-    var checkState: Bool = false
-
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-
-        if checkState {
-            UIColor.whiteColor().setFill()
-
-
-            // This BezierPath will Draw Check Symbol
-            let height: CGFloat = frame.height
-            var bezierPath: UIBezierPath = UIBezierPath()
-            bezierPath.moveToPoint(CGPointMake((0.17625 * height), (0.368125 * height)))
-            bezierPath.addCurveToPoint(CGPointMake((0.17625 * height), (0.46375 * height)), controlPoint1: CGPointMake((0.13125 * height), (0.418125 * height)), controlPoint2: CGPointMake((0.17625 * height), (0.46375 * height)))
-            bezierPath.addLineToPoint(CGPointMake((0.4 * height), (0.719375 * height)))
-            bezierPath.addCurveToPoint(CGPointMake((0.45375 * height), (0.756875 * height)), controlPoint1: CGPointMake((0.4 * height), (0.719375 * height)), controlPoint2: CGPointMake((0.4275 * height), (0.756875 * height)))
-            bezierPath.addCurveToPoint(CGPointMake((0.505625 * height), (0.719375 * height)), controlPoint1: CGPointMake((0.480625 * height), (0.75625 * height)), controlPoint2: CGPointMake((0.505625 * height), (0.719375 * height)))
-            bezierPath.addLineToPoint(CGPointMake((0.978125 * height), (0.145625 * height)))
-            bezierPath.addCurveToPoint(CGPointMake((0.978125 * height), (0.050625 * height)), controlPoint1: CGPointMake((0.978125 * height), (0.145625 * height)), controlPoint2: CGPointMake((1.026875 * height), (0.09375 * height)))
-            bezierPath.addCurveToPoint(CGPointMake((0.885625 * height), (0.050625 * height)), controlPoint1: CGPointMake((0.929375 * height), (0.006875 * height)), controlPoint2: CGPointMake((0.885625 * height), (0.050625 * height)))
-            bezierPath.addLineToPoint(CGPointMake((0.45375 * height), (0.590625 * height)))
-            bezierPath.addLineToPoint(CGPointMake((0.26875 * height), (0.368125 * height)))
-            bezierPath.addCurveToPoint(CGPointMake((0.17625 * height), (0.368125 * height)), controlPoint1: CGPointMake((0.26875 * height), (0.368125 * height)), controlPoint2: CGPointMake((0.221875 * height), (0.318125 * height)))
-            bezierPath.closePath()
-
-            bezierPath.miterLimit = 0
-            bezierPath.fill()
-        }
-
-
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        backgroundColor = UIColor.redColor()
-        layer.cornerRadius = 5
-        clipsToBounds = true
-
-    }
-
-    func toggleState() {
-        checkState = !checkState
-        setNeedsDisplay() // this will call drawRect() to re-draw
-    }
-
-}  
-
-</code></pre>
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/The-LiZ-World/page/2/">2</a><a class="extend next" rel="next" href="/The-LiZ-World/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1484,7 +1305,7 @@ class CheckBox: UIView {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1494,7 +1315,7 @@ class CheckBox: UIView {
           
             <div class="site-state-item site-state-tags">
               <a href="/The-LiZ-World/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
