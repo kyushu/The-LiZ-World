@@ -59,16 +59,16 @@
 
 
 
-<meta name="description" content="UITextView 是 UIScrollView 的子類別，基本上它跟 UITextField很像，差別在於，UITextView可以寫入多行並且可以使用 TextKit 達到圖文並茂的文章底下列出 UITextView 的一些屬性, 代理，通知Attribute1. selectedRange : 目前選擇的範圍，selectedRange.location 就是游標所在的位置2. scrol">
+<meta name="description" content="1-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath&amp;#10;&amp;#10;&amp;#123;&amp;#10;&amp;#10;    // Remove seperator inset&amp;#10;&amp;#10;    if ([c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 實作 圖文編輯器 （一） UITextView 與 Text Kit">
-<meta property="og:url" content="http://kyushu.github.io/2015/07/13/Customizer_RichText_Editor_1/index.html">
+<meta property="og:title" content="UITableView 的 CELL 的分格線對齊左邊，不會有空隙">
+<meta property="og:url" content="http://kyushu.github.io/2016/03/02/iOS-TableView-Cell-align-left/index.html">
 <meta property="og:site_name" content="The LiZ World">
-<meta property="og:description" content="UITextView 是 UIScrollView 的子類別，基本上它跟 UITextField很像，差別在於，UITextView可以寫入多行並且可以使用 TextKit 達到圖文並茂的文章底下列出 UITextView 的一些屬性, 代理，通知Attribute1. selectedRange : 目前選擇的範圍，selectedRange.location 就是游標所在的位置2. scrol">
-<meta property="og:updated_time" content="2016-02-21T10:22:55.000Z">
+<meta property="og:description" content="1-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath&amp;#10;&amp;#10;&amp;#123;&amp;#10;&amp;#10;    // Remove seperator inset&amp;#10;&amp;#10;    if ([c">
+<meta property="og:updated_time" content="2016-03-02T14:23:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 實作 圖文編輯器 （一） UITextView 與 Text Kit">
-<meta name="twitter:description" content="UITextView 是 UIScrollView 的子類別，基本上它跟 UITextField很像，差別在於，UITextView可以寫入多行並且可以使用 TextKit 達到圖文並茂的文章底下列出 UITextView 的一些屬性, 代理，通知Attribute1. selectedRange : 目前選擇的範圍，selectedRange.location 就是游標所在的位置2. scrol">
+<meta name="twitter:title" content="UITableView 的 CELL 的分格線對齊左邊，不會有空隙">
+<meta name="twitter:description" content="1-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath&amp;#10;&amp;#10;&amp;#123;&amp;#10;&amp;#10;    // Remove seperator inset&amp;#10;&amp;#10;    if ([c">
 
 
 
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title> iOS 實作 圖文編輯器 （一） UITextView 與 Text Kit | The LiZ World </title>
+  <title> UITableView 的 CELL 的分格線對齊左邊，不會有空隙 | The LiZ World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -206,7 +206,7 @@
             
             
               
-                iOS 實作 圖文編輯器 （一） UITextView 與 Text Kit
+                UITableView 的 CELL 的分格線對齊左邊，不會有空隙
               
             
           </h1>
@@ -218,8 +218,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-07-13T15:14:37+08:00" content="2015-07-13">
-              2015-07-13
+            <time itemprop="dateCreated" datetime="2016-03-02T22:21:12+08:00" content="2016-03-02">
+              2016-03-02
             </time>
           </span>
 
@@ -229,8 +229,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/The-LiZ-World/2015/07/13/Customizer_RichText_Editor_1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/13/Customizer_RichText_Editor_1/" itemprop="commentsCount"></span>
+                <a href="/The-LiZ-World/2016/03/02/iOS-TableView-Cell-align-left/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/02/iOS-TableView-Cell-align-left/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -251,15 +251,7 @@
       
 
       
-        <p><br></p>
-<font color="#ff0000" size="5">UITextView</font> 是 UIScrollView 的子類別，基本上它跟 UITextField很像，差別在於，UITextView可以寫入多行並且可以使用 TextKit 達到圖文並茂的文章<br><br>底下列出 UITextView 的一些屬性, 代理，通知<br><br><font color="#ff0000" size="4">Attribute</font><br>1. <strong>selectedRange</strong> : 目前選擇的範圍，selectedRange.location 就是游標所在的位置<br>2. <strong>scrollRangeToVisible</strong> : 滾動到指到的範圍<br><br>### UITextViewDelegate Protocol:<br>1. <strong>textViewShouldBeginEditing:</strong><br>2. <strong>textViewDidBeginEdition:</strong><br>3. <strong>textViewShouldEndEditing:</strong><br>4. <strong>textViewDidEndEditing:</strong><br>5. <strong>textView: ShouldChangeTextInRange: replacementText:</strong><br>6. <strong>textView: ShouldInteractWithTextAttachment: inRange:</strong><br>7. <strong>textView: shouldInteractWithURL: inRange:</strong><br><br>### Notification<br>1. <strong>UITextViewTextDidBeginEditingNotification</strong><br>2. <strong>UITextViewTextDidEndEditingNotification</strong><br>3. <strong>UITextViewtextDidChangeNotification</strong><br>4. <strong>UITextViewDidChangeSelection</strong><br><br>之後再根據有使用到的 Method 再加入說明<br><br><br><font color="#ff0000"><em><strong>Text Kit</strong></em></font> 是用來處理文字的引擎，可以將 <font color="#53A6FB"><em>NSAttributedString</em></font> 繪製到畫面上<br><br>這邊主要討論 UITextView 跟 Text Kit 之間的關係<br><font color="#ff0000"><em><strong>Text Kit</strong></em></font> 主要由3個類別組成，分別是<br><font color="#53A6FB"><em>NSTextStorage</em></font>,<br><font color="#53A6FB"><em>NSTextStorageNSTextContainer</em></font>,<br><font color="#53A6FB"><em>NSTextStorageNSLayoutManager</em></font>
-
-<p>而 <font color="#ff0000"><em>UITextView</em></font> 提供了可以直接存取 Text Kit 這 3 個類別的屬性</p>
-<p><font color="#C43480"><em>textStorage (NSTextStorage)</em></font> : NSMutableAttributedString 的子類別，它就是儲存 UITextView裡所有的文字。</p>
-<p><font color="#C43480"><em>layoutManager (NSLayoutManager)</em></font> : 是掌管如何將文字繪製到 textContainer 的類別，將 textStorage 裡的文字根據設定好的 layout(布局) 繪製到 textContainer</p>
-<p><font color="#C43480"><em>textContainer (NSTextContainer)</em></font> : 供文字繪製的容器</p>
-<p><font color="#C43480"><em>textContainerInset</em></font> :<br>在大部份的情況下<br>一個 textStorage 會有一個 layoutManager<br>  而一個 layoutManager 會有一個 textContainer</p>
-<p>在接下來的系列文中會依序介紹對 UITextView 的設定，將圖片插入文章中等等</p>
+        <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath&#10;&#10;&#123;&#10;&#10;    // Remove seperator inset&#10;&#10;    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) &#123;&#10;&#10;        [cell setSeparatorInset:UIEdgeInsetsZero];&#10;&#10;    &#125;&#10;&#10;    &#10;    // Prevent the cell from inheriting the Table View&#39;s margin settings&#10;&#10;    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) &#123;&#10;&#10;        [cell setPreservesSuperviewLayoutMargins:NO];&#10;&#10;    &#125;&#10;&#10;    &#10;    // Explictly set your cell&#39;s layout margins&#10;&#10;    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) &#123;&#10;&#10;        [cell setLayoutMargins:UIEdgeInsetsZero];&#10;&#10;    &#125;&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -277,17 +269,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/The-LiZ-World/2015/07/06/Built-in-Camera-Interface-CH/" rel="next" title="將內建的相機介面改成中文">
-                <i class="fa fa-chevron-left"></i> 將內建的相機介面改成中文
+              <a href="/The-LiZ-World/2016/02/22/intro-Machine-Learning/" rel="next" title="Machine Learning 介紹">
+                <i class="fa fa-chevron-left"></i> Machine Learning 介紹
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/The-LiZ-World/2015/07/13/Customizer-RichText-Editor-2/" rel="prev" title="iOS 實作 圖文編輯器 （二） UITextView 設定">
-                iOS 實作 圖文編輯器 （二） UITextView 設定 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -667,9 +655,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'thelizworld';
-      var disqus_identifier = '2015/07/13/Customizer_RichText_Editor_1/';
-      var disqus_title = 'iOS 實作 圖文編輯器 （一） UITextView 與 Text Kit';
-      var disqus_url = 'http://kyushu.github.io/2015/07/13/Customizer_RichText_Editor_1/';
+      var disqus_identifier = '2016/03/02/iOS-TableView-Cell-align-left/';
+      var disqus_title = 'UITableView 的 CELL 的分格線對齊左邊，不會有空隙';
+      var disqus_url = 'http://kyushu.github.io/2016/03/02/iOS-TableView-Cell-align-left/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

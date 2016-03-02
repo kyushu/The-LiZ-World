@@ -214,6 +214,103 @@
             
               
                 
+                <a class="post-title-link" href="/The-LiZ-World/2015/06/12/apply-iOS-Notification-flow/" itemprop="url">
+                  iOS 申請 推播 (Push Notification) 流程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-06-12T18:00:41+08:00" content="2015-06-12">
+              2015-06-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/The-LiZ-World/2015/06/12/apply-iOS-Notification-flow/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/12/apply-iOS-Notification-flow/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>iOS 申請 推播 (Push Notification) 流程</p>
+<p> 程式碼:<a href="https://gist.github.com/sawapi/a7cee65e4ad95578044d" target="_blank" rel="external">https://gist.github.com/sawapi/a7cee65e4ad95578044d</a></p>
+<p>1.鑰匙圈存取-&gt;憑證輔助程式-&gt;從憑證授權要求憑證 =&gt;會產生CertificateSigningRequest.certSigningRequest(憑證申請書)<br>2.將上步驟獲取之檔案到apple developer 申請憑證 aps_development.cer<br>3.將上步驟申請之憑證,透過鑰匙圈存取 轉檔成private_key.p12(按右鍵輸出)<br>4.將aps_development.cer轉換為 aps_development.pem<br>openssl x509 -in aps_development.cer -inform DER -out aps_development.pem -outform PEM<br>5.將private_key.p12 轉換為 private_key.pem<br>openssl pkcs12 -nocerts -out private_key.pem -in private_key.p12<br>6.去除轉發密碼<br>openssl rsa -out private_key_noenc.pem -in private_key.pem<br>7.合併 aps_development.pem 與 private_key_noenc.pem<br>cat aps_development.pem private_key_noenc.pem &gt; apns_dev.pem<br>8.金鑰申請完成</p>
+<p><em><strong>到步驟 8 所產生的金鑰是給伺服器使用的</strong></em></p>
+<p>9.到apple developer 申請 Provisioning Profiles會產生xxxxx.mobileprovision檔,點擊後,重新run app就會產生push token</p>
+<p><em><strong><br>步驟 9 所產生的 xxxxx.mobileprovision檔 是給 APP用的，抓下來後在 Xcode 己開啟的情況下雙點擊xxxxx.mobileprovision檔案，Xcode 會自動載入到相同的 Bundle Identifier 的專案<br></strong></em></p>
+<p>10 Case： 如果建立新的專案，名稱與舊的專案不同，但想將舊的更新掉，可以如下的做法<br>10-1. 在 project -&gt; targety -&gt; info -&gt; Bundle Identifier : 改成舊的專案 Bundle Identifier （Apple 只認 Bundle Identifier）<br>10-2. 如果舊的專案已經有使用 Push Notification，想要在新的專案繼續使用<br>10-2-1. 建議重做 1 ～9 步驟，但因為原本舊的專案已經產生過憑證（.cer），所以直接從步驟2. 做到 iOS APP -&gt; Identifiers -&gt; APP ID -&gt; 找舊的專案點選 -&gt; Edit -&gt; Development SSL Certificate -&gt; download 接著從步驟 2 開始<br>10-2-2. Provision Profiles -&gt; All -&gt; 找舊的專案點選 -&gt; Download -&gt; 下載下來後點擊會自動加入Xcode （跟步驟 9 一樣，會認 Bundle Identifier）</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/The-LiZ-World/2015/06/09/customize-CheckBok-UIView/" itemprop="url">
                   客製 Check Box
                 </a>
@@ -430,7 +527,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
