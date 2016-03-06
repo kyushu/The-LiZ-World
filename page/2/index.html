@@ -214,6 +214,131 @@
             
               
                 
+                <a class="post-title-link" href="/The-LiZ-World/2015/06/12/the-rule-of-ver-Num-of-Node/" itemprop="url">
+                  the_Rule_Of_version_Number_Of_Node.JS
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-06-12T18:12:59+08:00" content="2015-06-12">
+              2015-06-12
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/The-LiZ-World/2015/06/12/the-rule-of-ver-Num-of-Node/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/12/the-rule-of-ver-Num-of-Node/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>關於package.json裡設定  node.js 的 module  版號，使用的規則如下</p>
+<p>假設 package.json 裡的內容如下</p>
+<pre><code>
+{
+  "name": "MyApp",
+  "version": "1.0.2",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.12.4",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.12.4",
+    "jade": "~1.9.2",
+    "morgan": "~1.5.3",
+    "serve-favicon": "~2.2.1",
+    "mongodb": "2.0.33",
+    "monk": "1.0.1",
+    "connect-flash": "0.1.1",
+    "express-validator": "2.10.0",
+    "express-session": "1.11.2",
+    "express-messages": "0.0.2",
+    "multer": "0.1.8",
+    "moment": "2.10.3"
+  }
+}  
+</code></pre>
+
+
+<p>以 morgan: “~1.5.3” 為例</p>
+<p>1 :  main version， 主要版號<br>5 :  sub version，次版號，有新功能時會增加<br>3 :  bug version, bug 版號，有修正 bug 時會增加</p>
+<p>至於版號前面的符號所代表的意思如下：<br>“~1.5.3” 代表 1.5.x （Bug修正等等更新，舉例：會更新1.5.4， 1.6.1就不會）<br>“^1.5.3” 則相當於會更新到1.x.x （新版，有新功能，但會相容，舉例：會更新1.6.3， 2.0.1就不會）<br>“1.5.3” 永遠只會用1.5.3這版本（也就是如果新版修正了1.5.3的 bug， 你用 npm update 也不會更新）</p>
+<p>基本上當你使用 npm install morgan –save 的時候<br>它預設會寫入 “morgan”: “＾1.5.3”</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/The-LiZ-World/2015/06/12/apply-iOS-Notification-flow/" itemprop="url">
                   iOS 申請 推播 (Push Notification) 流程
                 </a>
@@ -527,7 +652,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -537,7 +662,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/The-LiZ-World/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
