@@ -1,0 +1,703 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="xB3bjQgdurHGTVjk1ffJztNng_YiUqrbk-Hp0ZkB7BQ" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/The-LiZ-World/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/The-LiZ-World/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/The-LiZ-World/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="在iOS 8 之後蘋果為 NavigationBar 的互動提供了許多 API 來使用, 如下所示1. 直接 隱藏／顯示 NavigationBar123navigationController?.setNavigationBarHidden(true, animated: true)// ornavigationController?.navigationBarHidden = true
+由於">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS NavigationBar 的互動(Interaction)">
+<meta property="og:url" content="http://kyushu.github.io/2015/06/11/iOS-NavigationBar-Animation/index.html">
+<meta property="og:site_name" content="The LiZ World">
+<meta property="og:description" content="在iOS 8 之後蘋果為 NavigationBar 的互動提供了許多 API 來使用, 如下所示1. 直接 隱藏／顯示 NavigationBar123navigationController?.setNavigationBarHidden(true, animated: true)// ornavigationController?.navigationBarHidden = true
+由於">
+<meta property="og:updated_time" content="2016-03-11T02:05:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS NavigationBar 的互動(Interaction)">
+<meta name="twitter:description" content="在iOS 8 之後蘋果為 NavigationBar 的互動提供了許多 API 來使用, 如下所示1. 直接 隱藏／顯示 NavigationBar123navigationController?.setNavigationBarHidden(true, animated: true)// ornavigationController?.navigationBarHidden = true
+由於">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> iOS NavigationBar 的互動(Interaction) | The LiZ World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/The-LiZ-World/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">The LiZ World</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Learning And Sharing</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/The-LiZ-World" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/The-LiZ-World/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/The-LiZ-World/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS NavigationBar 的互動(Interaction)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-06-11T08:50:21+08:00" content="2015-06-11">
+              2015-06-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/The-LiZ-World/2015/06/11/iOS-NavigationBar-Animation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/11/iOS-NavigationBar-Animation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="在iOS-8-之後蘋果為-NavigationBar-的互動提供了許多-API-來使用-如下所示"><a href="#在iOS-8-之後蘋果為-NavigationBar-的互動提供了許多-API-來使用-如下所示" class="headerlink" title="在iOS 8 之後蘋果為 NavigationBar 的互動提供了許多 API 來使用, 如下所示"></a>在iOS 8 之後蘋果為 NavigationBar 的互動提供了許多 API 來使用, 如下所示</h3><h4 id="1-直接-隱藏／顯示-NavigationBar"><a href="#1-直接-隱藏／顯示-NavigationBar" class="headerlink" title="1. 直接 隱藏／顯示 NavigationBar"></a>1. 直接 隱藏／顯示 NavigationBar</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">navigationController?.setNavigationBarHidden(<span class="literal">true</span>, animated: <span class="literal">true</span>)</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">navigationController?.navigationBarHidden = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>由於 navigationController 是 optional，所以使用上最好是判斷一下吧<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> navController = navigationController &#123;</span><br><span class="line">    navController.setNavigationBarHidden(<span class="literal">true</span>, animated: <span class="literal">true</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-當滑動畫面時，隱藏／顯示-NavigationBar"><a href="#2-當滑動畫面時，隱藏／顯示-NavigationBar" class="headerlink" title="2. 當滑動畫面時，隱藏／顯示 NavigationBar"></a>2. 當滑動畫面時，隱藏／顯示 NavigationBar</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigationController.hidesBarsOnSwipe = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-當點擊畫面時，隱藏／顯示-NavigationBar"><a href="#3-當點擊畫面時，隱藏／顯示-NavigationBar" class="headerlink" title="3. 當點擊畫面時，隱藏／顯示 NavigationBar"></a>3. 當點擊畫面時，隱藏／顯示 NavigationBar</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigationController?.hidesBarsOnTap = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-顯示鍵盤時，隱藏／顯示-NavigationBar"><a href="#4-顯示鍵盤時，隱藏／顯示-NavigationBar" class="headerlink" title="4. 顯示鍵盤時，隱藏／顯示 NavigationBar"></a>4. 顯示鍵盤時，隱藏／顯示 NavigationBar</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigationController?.hidesBarsWhenKeyboardAppears = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>假設你希望在 MyTableViewController 執行<strong>滑動</strong>(<strong><em>Swipe</em></strong>) 手勢的時候，會產生 NavigationBar 隱藏／顯示的動畫，那你可以<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTableViewController</span>: <span class="title">UITableViewController</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidAppear(animated)</span><br><span class="line">         </span><br><span class="line">        navigationController?.hidesBarsOnSwipe = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在這裡要注意的一點就是： 當你設定了 hidesBarsOnSwipe = true 之後所有被 PUSH 進 NavigationViewController 的 ViewController 在執行 滑動(Swipe) 手勢的時候， 都會將 NavigationBar 隱藏／顯示</p>
+<p>那假設希望在 MyTableViewController 執行<strong>點選</strong>(<strong><em>Tap</em></strong>) 手勢的時候，會產生 NavigationBar 隱藏／顯示的動畫，那你可以<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTableViewController</span>: <span class="title">UITableViewController</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidAppear(animated)</span><br><span class="line">         </span><br><span class="line">        <span class="comment">// 如果在前一個 ViewController 有設定 hidesBarsOnSwipe = true</span></span><br><span class="line">        <span class="comment">// 這裡要設 hidesBarsOnSwipe = false </span></span><br><span class="line">        <span class="comment">// 因為現在 View 我們需要的是點選畫面 NavigationBar 就會隱藏</span></span><br><span class="line">        <span class="comment">// 所以滑動隱藏就不合理了（因為一點選就隱藏，根本不會執行到滑動隱藏）</span></span><br><span class="line">        navigationController?.hidesBarsOnSwipe = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">        navigationController?.hidesBarsOnTap = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>還有就是當鍵盤出現時，隱藏／顯示 NavigationBar, 你可以<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTableViewController</span>: <span class="title">UITableViewController</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidAppear(animated)</span><br><span class="line">         </span><br><span class="line">        <span class="comment">// 你可以保留 hidesBarsOnTap = true，來讓使用者可以點擊螢幕的任一處來顯示 NavigationBar</span></span><br><span class="line">        navigationController?.hidesBarsOnTap = <span class="literal">true</span></span><br><span class="line">         </span><br><span class="line">        navigationController?.hidesBarsWhenKeyboardAppears = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最後再列出 NavigationViewController 對於 NavigationBar 的一些屬性，方便參考<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UINavigationController</span> : <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//... truncated</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">/// When the keyboard appears, the navigation controller's navigationBar toolbar will be hidden. The bars will remain hidden when the keyboard dismisses, but a tap in the content area will show them.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> hidesBarsWhenKeyboardAppears: <span class="type">Bool</span></span><br><span class="line">    <span class="comment">/// When the user swipes, the navigation controller's navigationBar &amp; toolbar will be hidden (on a swipe up) or shown (on a swipe down). The toolbar only participates if it has items.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> hidesBarsOnSwipe: <span class="type">Bool</span></span><br><span class="line">    <span class="comment">/// The gesture recognizer that triggers if the bars will hide or show due to a swipe. Do not change the delegate or attempt to replace this gesture by overriding this method.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> barHideOnSwipeGestureRecognizer: <span class="type">UIPanGestureRecognizer</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="comment">/// When the UINavigationController's vertical size class is compact, hide the UINavigationBar and UIToolbar. Unhandled taps in the regions that would normally be occupied by these bars will reveal the bars.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> hidesBarsWhenVerticallyCompact: <span class="type">Bool</span></span><br><span class="line">    <span class="comment">/// When the user taps, the navigation controller's navigationBar &amp; toolbar will be hidden or shown, depending on the hidden state of the navigationBar. The toolbar will only be shown if it has items to display.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> hidesBarsOnTap: <span class="type">Bool</span></span><br><span class="line">    <span class="comment">/// The gesture recognizer used to recognize if the bars will hide or show due to a tap in content. Do not change the delegate or attempt to replace this gesture by overriding this method.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">unowned</span>(unsafe) <span class="keyword">var</span> barHideOnTapGestureRecognizer: <span class="type">UITapGestureRecognizer</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/The-LiZ-World/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/The-LiZ-World/2015/06/09/customize-CheckBok-UIView/" rel="next" title="客製 Check Box">
+                <i class="fa fa-chevron-left"></i> 客製 Check Box
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/The-LiZ-World/2015/06/11/iOS-Hide-StatusBar/" rel="prev" title="iOS 隱藏／顯示 Status Bar">
+                iOS 隱藏／顯示 Status Bar <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/The-LiZ-World/images/Zatch_Bell.jpg"
+               alt="Morpheus Tsai" />
+          <p class="site-author-name" itemprop="name">Morpheus Tsai</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/The-LiZ-World/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在iOS-8-之後蘋果為-NavigationBar-的互動提供了許多-API-來使用-如下所示"><span class="nav-number">1.</span> <span class="nav-text">在iOS 8 之後蘋果為 NavigationBar 的互動提供了許多 API 來使用, 如下所示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-直接-隱藏／顯示-NavigationBar"><span class="nav-number">1.1.</span> <span class="nav-text">1. 直接 隱藏／顯示 NavigationBar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-當滑動畫面時，隱藏／顯示-NavigationBar"><span class="nav-number">1.2.</span> <span class="nav-text">2. 當滑動畫面時，隱藏／顯示 NavigationBar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-當點擊畫面時，隱藏／顯示-NavigationBar"><span class="nav-number">1.3.</span> <span class="nav-text">3. 當點擊畫面時，隱藏／顯示 NavigationBar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-顯示鍵盤時，隱藏／顯示-NavigationBar"><span class="nav-number">1.4.</span> <span class="nav-text">4. 顯示鍵盤時，隱藏／顯示 NavigationBar</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Morpheus Tsai</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+&nbsp&nbsp&nbsp 訪客人數 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>位旅人
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/The-LiZ-World/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/The-LiZ-World/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/The-LiZ-World/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/The-LiZ-World/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/The-LiZ-World/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/The-LiZ-World/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/The-LiZ-World/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/The-LiZ-World/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/The-LiZ-World/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/The-LiZ-World/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'thelizworld';
+      var disqus_identifier = '2015/06/11/iOS-NavigationBar-Animation/';
+      var disqus_title = 'iOS NavigationBar 的互動(Interaction)';
+      var disqus_url = 'http://kyushu.github.io/2015/06/11/iOS-NavigationBar-Animation/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

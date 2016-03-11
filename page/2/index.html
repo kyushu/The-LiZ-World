@@ -441,6 +441,106 @@
             
               
                 
+                <a class="post-title-link" href="/The-LiZ-World/2015/06/11/iOS-NavigationBar-Animation/" itemprop="url">
+                  iOS NavigationBar 的互動(Interaction)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-06-11T08:50:21+08:00" content="2015-06-11">
+              2015-06-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/The-LiZ-World/2015/06/11/iOS-NavigationBar-Animation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/11/iOS-NavigationBar-Animation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="在iOS-8-之後蘋果為-NavigationBar-的互動提供了許多-API-來使用-如下所示"><a href="#在iOS-8-之後蘋果為-NavigationBar-的互動提供了許多-API-來使用-如下所示" class="headerlink" title="在iOS 8 之後蘋果為 NavigationBar 的互動提供了許多 API 來使用, 如下所示"></a>在iOS 8 之後蘋果為 NavigationBar 的互動提供了許多 API 來使用, 如下所示</h3><h4 id="1-直接-隱藏／顯示-NavigationBar"><a href="#1-直接-隱藏／顯示-NavigationBar" class="headerlink" title="1. 直接 隱藏／顯示 NavigationBar"></a>1. 直接 隱藏／顯示 NavigationBar</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">navigationController?.setNavigationBarHidden(<span class="literal">true</span>, animated: <span class="literal">true</span>)</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">navigationController?.navigationBarHidden = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>由於 navigationController 是 optional，所以使用上最好是判斷一下吧<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> navController = navigationController &#123;</span><br><span class="line">    navController.setNavigationBarHidden(<span class="literal">true</span>, animated: <span class="literal">true</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-當滑動畫面時，隱藏／顯示-NavigationBar"><a href="#2-當滑動畫面時，隱藏／顯示-NavigationBar" class="headerlink" title="2. 當滑動畫面時，隱藏／顯示 NavigationBar"></a>2. 當滑動畫面時，隱藏／顯示 NavigationBar</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigationController.hidesBarsOnSwipe = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-當點擊畫面時，隱藏／顯示-NavigationBar"><a href="#3-當點擊畫面時，隱藏／顯示-NavigationBar" class="headerlink" title="3. 當點擊畫面時，隱藏／顯示 NavigationBar"></a>3. 當點擊畫面時，隱藏／顯示 NavigationBar</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigationController?.hidesBarsOnTap = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-顯示鍵盤時，隱藏／顯示-NavigationBar"><a href="#4-顯示鍵盤時，隱藏／顯示-NavigationBar" class="headerlink" title="4. 顯示鍵盤時，隱藏／顯示 NavigationBar"></a>4. 顯示鍵盤時，隱藏／顯示 NavigationBar</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigationController?.hidesBarsWhenKeyboardAppears = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>假設你希望在 MyTableViewController 執行<strong>滑動</strong>(<strong><em>Swipe</em></strong>) 手勢的時候，會產生 NavigationBar 隱藏／顯示的動畫，那你可以<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTableViewController</span>: <span class="title">UITableViewController</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidAppear(animated)</span><br><span class="line">         </span><br><span class="line">        navigationController?.hidesBarsOnSwipe = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在這裡要注意的一點就是： 當你設定了 hidesBarsOnSwipe = true 之後所有被 PUSH 進 NavigationViewController 的 ViewController 在執行 滑動(Swipe) 手勢的時候， 都會將 NavigationBar 隱藏／顯示</p>
+<p>那假設希望在 MyTableViewController 執行<strong>點選</strong>(<strong><em>Tap</em></strong>) 手勢的時候，會產生 NavigationBar 隱藏／顯示的動畫，那你可以<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTableViewController</span>: <span class="title">UITableViewController</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidAppear(animated)</span><br><span class="line">         </span><br><span class="line">        <span class="comment">// 如果在前一個 ViewController 有設定 hidesBarsOnSwipe = true</span></span><br><span class="line">        <span class="comment">// 這裡要設 hidesBarsOnSwipe = false </span></span><br><span class="line">        <span class="comment">// 因為現在 View 我們需要的是點選畫面 NavigationBar 就會隱藏</span></span><br><span class="line">        <span class="comment">// 所以滑動隱藏就不合理了（因為一點選就隱藏，根本不會執行到滑動隱藏）</span></span><br><span class="line">        navigationController?.hidesBarsOnSwipe = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">        navigationController?.hidesBarsOnTap = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>還有就是當鍵盤出現時，隱藏／顯示 NavigationBar, 你可以<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTableViewController</span>: <span class="title">UITableViewController</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidAppear(animated)</span><br><span class="line">         </span><br><span class="line">        <span class="comment">// 你可以保留 hidesBarsOnTap = true，來讓使用者可以點擊螢幕的任一處來顯示 NavigationBar</span></span><br><span class="line">        navigationController?.hidesBarsOnTap = <span class="literal">true</span></span><br><span class="line">         </span><br><span class="line">        navigationController?.hidesBarsWhenKeyboardAppears = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最後再列出 NavigationViewController 對於 NavigationBar 的一些屬性，方便參考<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UINavigationController</span> : <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//... truncated</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">/// When the keyboard appears, the navigation controller's navigationBar toolbar will be hidden. The bars will remain hidden when the keyboard dismisses, but a tap in the content area will show them.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> hidesBarsWhenKeyboardAppears: <span class="type">Bool</span></span><br><span class="line">    <span class="comment">/// When the user swipes, the navigation controller's navigationBar &amp; toolbar will be hidden (on a swipe up) or shown (on a swipe down). The toolbar only participates if it has items.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> hidesBarsOnSwipe: <span class="type">Bool</span></span><br><span class="line">    <span class="comment">/// The gesture recognizer that triggers if the bars will hide or show due to a swipe. Do not change the delegate or attempt to replace this gesture by overriding this method.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> barHideOnSwipeGestureRecognizer: <span class="type">UIPanGestureRecognizer</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="comment">/// When the UINavigationController's vertical size class is compact, hide the UINavigationBar and UIToolbar. Unhandled taps in the regions that would normally be occupied by these bars will reveal the bars.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> hidesBarsWhenVerticallyCompact: <span class="type">Bool</span></span><br><span class="line">    <span class="comment">/// When the user taps, the navigation controller's navigationBar &amp; toolbar will be hidden or shown, depending on the hidden state of the navigationBar. The toolbar will only be shown if it has items to display.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">var</span> hidesBarsOnTap: <span class="type">Bool</span></span><br><span class="line">    <span class="comment">/// The gesture recognizer used to recognize if the bars will hide or show due to a tap in content. Do not change the delegate or attempt to replace this gesture by overriding this method.</span></span><br><span class="line">    @availability(iOS, introduced=<span class="number">8.0</span>)</span><br><span class="line">    <span class="keyword">unowned</span>(unsafe) <span class="keyword">var</span> barHideOnTapGestureRecognizer: <span class="type">UITapGestureRecognizer</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/The-LiZ-World/2015/06/09/customize-CheckBok-UIView/" itemprop="url">
                   客製 Check Box
                 </a>
@@ -657,7 +757,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
